@@ -1,5 +1,26 @@
-cdpath=(
-#    $HOME/projects(N-/)
-#    $HOME/go/src/github.com/suin(N-/)
-    $cdpath
-)
+setopt no_global_rcs
+setopt AUTO_CD
+
+: "ディレクトリ履歴" && {
+  cdpath=(
+#      $HOME/projects(N-/)
+#      $HOME/go/src/github.com/suin(N-/)
+      $cdpath
+  )
+}
+
+: "jEnv" && {
+  export JENV_ROOT="$HOME/.jenv"
+}
+
+: "PATH設定" && {
+  path=(
+  #  $HOME/.anyenv/bin(N-/)
+    $JENV_ROOT/bin
+    /usr/local/opt/gettext/bin
+    /usr/local/opt/gpg-agent/bin
+    /usr/local/bin
+    $path
+  )
+}
+export GPG_TTY=$(tty)

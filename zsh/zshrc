@@ -114,7 +114,7 @@
         abbrev-alias l1="exa -1"
       } || {
         #######################################
-         OS 別の設定
+        # OS 別の設定
         case ${OSTYPE} in
             darwin*)
                 #Mac用の設定
@@ -196,17 +196,19 @@
   type direnv > /dev/null && eval "$(direnv hook zsh)"
 }
 
+: "jenv" && {
+  if [ -d "${JENV_ROOT}" ]; then
+    eval "$(jenv init -)"
+  fi
+}
+
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
 #[[ -f /Users/suin/Dropbox/open/dotfiles/.config/yarn/global/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/suin/Dropbox/open/dotfiles/.config/yarn/global/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
 
-# jenv
-if which jenv > /dev/null; then
-    # JENV_ROOTがemptyの場合、'${HOME}/.jenv'がrootと設定される
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
-fi
-
-# GPG
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+: "zshrcのコンパイル" && {
+  # 初回は手動でzcompileする事
+  if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+    zcompile ~/.zshrc
+  fi
+}
