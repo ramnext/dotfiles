@@ -196,9 +196,9 @@
   type direnv > /dev/null && eval "$(direnv hook zsh)"
 }
 
-: "jenv" && {
-  if [ -d "${JENV_ROOT}" ]; then
-    eval "$(jenv init -)"
+: "anyenv" && {
+  if [ -d "${ANYENV_ROOT}" ]; then
+    eval "$(anyenv init -)"
   fi
 }
 

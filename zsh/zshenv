@@ -13,9 +13,13 @@ setopt AUTO_CD
   export JENV_ROOT="$HOME/.jenv"
 }
 
+: "anyEnv" && {
+  export ANYENV_ROOT="$HOME/.anyenv"
+}
+
 : "PATH設定" && {
   path=(
-  #  $HOME/.anyenv/bin(N-/)
+    $ANYENV_ROOT/bin(N-/)
     $JENV_ROOT/bin
     /usr/local/opt/gettext/bin
     /usr/local/opt/gpg-agent/bin
@@ -23,4 +27,7 @@ setopt AUTO_CD
     $path
   )
 }
-export GPG_TTY=$(tty)
+
+: "GPG" && {
+  export GPG_TTY=$(tty)
+}
