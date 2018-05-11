@@ -1,0 +1,5 @@
+cdpath=(
+#    $HOME/projects(N-/)
+#    $HOME/go/src/github.com/suin(N-/)
+    $cdpath
+)
