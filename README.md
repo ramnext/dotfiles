@@ -1,3 +1,4 @@
 # dotfiles
 
 - zsh
+- fish
