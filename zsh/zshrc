@@ -202,6 +202,17 @@
   fi
 }
 
+#tmux
+function tm() { 
+       if [ -n "${1}" ]; then
+           tmux attach-session -t ${1} || \
+           tmux new-session -s ${1}
+    else
+           tmux attach-session || \
+           tmux new-session
+       fi
+}
+
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
 #[[ -f /Users/suin/Dropbox/open/dotfiles/.config/yarn/global/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/suin/Dropbox/open/dotfiles/.config/yarn/global/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
@@ -212,3 +223,7 @@
     zcompile ~/.zshrc
   fi
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/toshis/.sdkman"
+[[ -s "/Users/toshis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/toshis/.sdkman/bin/sdkman-init.sh"
