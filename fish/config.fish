@@ -75,8 +75,7 @@ end
 ###
 ### pyenv
 ###
-set PATH /Users/toshis/.anyenv/envs/pyenv/shims $PATH
-eval (pyenv init - | source)
+source (conda info --root)/etc/fish/conf.d/conda.fish
 
 ###
 ### SDKMAN
