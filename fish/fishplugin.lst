@@ -3,16 +3,6 @@ decors/fish-ghq
 edc/bass
 fisherman/fzf
 fisherman/gitignore
-fisherman/spin
 fisherman/z
-hauleth/agnoster
 oh-my-fish/plugin-balias
-oh-my-fish/plugin-expand
-oh-my-fish/plugin-extract
-oh-my-fish/plugin-peco
-oh-my-fish/theme-agnoster
 oh-my-fish/theme-bobthefish
-rafaelrinaldi/pure
-tsu-nera/fish-peco_open_gh_repository
-tsu-nera/fish-peco_recentd
-yoshiori/fish-peco_select_ghq_repository
