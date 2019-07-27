@@ -24,6 +24,8 @@ function fish_user_key_bindings
     bind -M insert \ef forward-char
     bind -M insert \eb backward-char
 
+    # Input new line escape
+    bind -M insert \co 'commandline -i \\\\\n'
 
     ### fzf ###
     set -q FZF_LEGACY_KEYBINDINGS
