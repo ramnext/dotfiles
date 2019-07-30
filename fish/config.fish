@@ -2,9 +2,12 @@ if not functions -q fisher
     echo "Installing fisher for the first time..." >&2
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fisher
+    fish -c fisher
 end
 
+###
+### keybindings setting
+###
 function fish_user_key_bindings
 
     for mode in insert default visual
@@ -80,10 +83,45 @@ function fish_user_key_bindings
 #@    end
 end
 
+## bobthefish settings
+set -g theme_color_scheme dracula
+set -g theme_nerd_fonts yes
+#@set -g theme_display_date no
+#@set -g theme_date_format "+%m/%d %H:%M:%S"
+set -g theme_newline_cursor yes
+
 ###
 ### anyenv
 ###
 status --is-interactive; and source (anyenv init -|psub)
+
+## aliases for git
+alias g="git"
+alias gs="git status"
+alias gd="git diff"
+alias ga="git add"
+alias gca="git commit -a -m"
+alias gcm="git commit -m"
+alias gbd="git branch -D"
+alias gp="git push"
+alias gb="git branch"
+alias gcob="git checkout -b"
+alias gco="git checkout"
+alias gba="git branch -a"
+alias glog="git log --graph --date=iso --pretty='[%ad]%C(auto) %h%d %Cgreen%an%Creset : %s'"
+alias gll="git log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
+
+## aliases for exa
+alias ls='exa --group-directories-first'
+alias l1="exa -1gF"
+alias ll="exa -lgF --group-directories-first"
+alias la="exa -lgFa --group-directories-first"
+alias lr="exa -lgFr --group-directories-first"
+alias lt="exa -T"
+alias lT="exa -lT"
+
+## alias for lazydocker
+alias lzd="lazydocker"
 
 ###
 ### sqlite
