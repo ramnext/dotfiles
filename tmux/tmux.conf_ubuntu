@@ -1,0 +1,115 @@
+#tmux powerline 
+run-shell "powerline-daemon -q" 
+#source "/home/z1h6022/.local/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf"
+#set-option -g default-terminal screen-256color 
+#set -g terminal-overrides 'xterm:colors=256'
+
+##Keybind
+#Change default prefix
+set-option -g prefix C-q
+bind-key C-t send-prefix #Ctrl+t + Ctrl+tでCtrl+tを入力
+unbind-key C-b
+
+#### 設定ファイルの再読込み
+#### -> chage tmux-sensible Plugin
+####bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# | でペインを縦に分割する
+bind | split-window -h
+# - でペインを横に分割する
+bind - split-window -v
+
+#### Vimのキーバインドでペインを移動する
+#### -> chage tmux-pain-control Plugin
+####bind h select-pane -L
+####bind j select-pane -D
+####bind k select-pane -U
+####bind l select-pane -R
+
+#### Vimのキーバインドでペインをリサイズする
+#### -> chage tmux-pain-control Plugin
+####bind -r H resize-pane -L 5
+####bind -r J resize-pane -D 5
+####bind -r K resize-pane -U 5
+####bind -r L resize-pane -R 5
+
+#window move
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+#tmux version >= 2.4
+#bind-key -T copy-mode-vi v send-keys -X begin-selection
+#bind-key -T copy-mode-vi V send-keys -X select-line
+#bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+#bind-key -T copy-mode-vi y send-keys -X copy-pipe "xsel -bi"
+#bind-key -T copy-mode-vi Enter send-keys -X copy-pipe "xsel -bi"
+#bind-key -T copy-mode-vi Escape send-keys -X cancel
+#bind-key -T copy-mode-vi H send-keys -X start-of-line
+#bind-key -T copy-mode-vi L send-keys -X end-of-line
+
+##Copy
+#Use vi style key bindings in copy mode
+# -> Change tmux-yank Plugin
+#set-window-option -g mode-keys vi
+#Prefix+v でコピーモード開始
+#bind-key v copy-mode
+#pでバッファをペースト
+#bind-key p paste-buffer
+#bind-key -t vi-copy v begin-selection
+#bind-key -t vi-copy V select-line
+#Ctrl-Vで矩形モードに切り替え
+#bind-key -t vi-copy C-v rectangle-toggle
+#y or Enterでヤンクしてクリップボードにコピー
+#bind-key -t vi-copy y copy-pipe "xsel -bi"
+#bind-key -t vi-copy Enter copy-pipe "xsel -bi"
+#ESCでコピーモードを抜ける
+#bind-key -t vi-copy Escape cancel
+#Hで行頭
+#bind-key -t vi-copy H start-of-line
+#Lで行末
+#bind-key -t vi-copy L end-of-line
+
+# コピーモードをvi風にする
+setw -g mode-keys vi
+
+# ウィンドウ分割後もカレントディレクトリに留まる
+#if-shell "~/dotfiles/bin/tmux-version-check 1.9" '
+bind c new-window -c "#{pane_current_path}"
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+
+# ウィンドウを閉じた時に番号を詰める
+#if-shell "~/dotfiles/bin/tmux-version-check 1.7"
+
+##Others
+set-option -g mouse on
+
+#set history limit 10000
+set-option -g history-limit 10000
+
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+#set -g @plugin 'seebi/tmux-colors-solarized'
+#    set -g @colors-solarized '256'
+
+set -g @plugin 'tmux-plugins/tmux-resurrect'    #Prefix C-sでセッション保存 C-rでセッションリロード
+set -g @plugin 'tmux-plugins/tmux-continuum'
+#    set -g @continuum-restore 'on'              #tmuxスタート時に自動で復元
+    set -g @continuum-save-interval '1'         #セッションを保存する間隔を1分にする
+    set -g status-right 'Continuum status: #{continuum_status}' #continuumのステータスを表示
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+set -g @plugin 'tmux-plugins/tmux-open'
+    set -g @open-S 'https://www.google.com/search?q='
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'jimeh/tmux-themepack'
+#set -g @themepack 'basic'
+#set -g @themepack 'powerline/block/blue'
+set -g @themepack 'powerline/block/cyan'
+#set -g @themepack 'powerline/default/gray'
+#set -g @themepack 'powerline/double/magenta'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
