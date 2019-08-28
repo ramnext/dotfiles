@@ -85,6 +85,9 @@ function fish_user_key_bindings
 #@    end
 end
 
+# base path config
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
 ## bobthefish settings
 set -g theme_color_scheme dracula
 set -g theme_nerd_fonts yes
@@ -141,3 +144,9 @@ set -gx LDFLAGS "-L/usr/local/opt/sqlite/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/sqlite/include"
 
 set -gx PKG_CONFIG_PATH "/usr/local/opt/sqlite/lib/pkgconfig"
+
+###
+### byobu
+###
+set -gx BYOBU_PREFIX "/usr/local"
+set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
