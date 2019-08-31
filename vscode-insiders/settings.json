@@ -1,0 +1,53 @@
+{
+    "python.insidersChannel": "off",
+    "workbench.iconTheme": "vscode-icons",
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/Users/toshis/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.kubectl-path": "/Users/toshis/.vs-kubernetes/tools/kubectl/kubectl",
+        "vs-kubernetes.minikube-path": "/Users/toshis/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.draft-path": "/Users/toshis/.vs-kubernetes/tools/draft/darwin-amd64/draft"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "editor.fontFamily": "Ricty Diminished Discord with-icons, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "debug.console.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "workbench.startupEditor": "none",
+    "vim.sneak": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.leader": " ",
+    "vim.easymotion": true,
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "editor.renderWhitespace": "boundary",
+    "search.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/env": true,
+        "tags": true
+    },
+    "files.exclude": {
+        "**/.svn": false
+    },
+    "workbench.editor.labelFormat": "short",
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.openPositioning": "first",
+    "debug.inlineValues": true,
+    "terminal.integrated.copyOnSelection": true,
+    "git.autofetch": true,
+    "workbench.activityBar.visible": false
+}

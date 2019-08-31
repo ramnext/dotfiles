@@ -1,0 +1,25 @@
+{
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.fontSize": 16,
+    "editor.fontFamily": "Ricty Diminished Discord with-icons, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "code-runner.executorMap": {
+        "kotlin": "cd $dir && kotlinc-jvm $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar"
+    },
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorStyle": "block",
+    "telemetry.enableTelemetry": false,
+    "workbench.editor.highlightModifiedTabs": true,
+    "bracket-pair-colorizer-2.highlightActiveScope": true,
+    "bracket-pair-colorizer-2.rulerPosition": "Full",
+    "bracket-pair-colorizer-2.showBracketsInGutter": true,
+    "bracket-pair-colorizer-2.showBracketsInRuler": true,
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "window.zoomLevel": 0
+}
