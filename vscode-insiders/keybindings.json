@@ -10,21 +10,21 @@
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
-    {
-        "key": "tab",
-        "command": "cursorRight",
-        "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "shift+tab",
-        "command": "tab",
-        "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && editorTextFocus && !editorReadonly && !editorTabMovesFocus"
-    },
-    {
-        "key": "tab",
-        "command": "-tab",
-        "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && editorTextFocus && !editorReadonly && !editorTabMovesFocus"
-    },
+//    {
+//        "key": "tab",
+//        "command": "cursorRight",
+//        "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && textInputFocus"
+//    },
+//    {
+//        "key": "shift+tab",
+//        "command": "tab",
+//        "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+//    },
+//    {
+//        "key": "tab",
+//        "command": "-tab",
+//        "when": "!suggestWidgetMultipleSuggestions && !suggestWidgetVisible && editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+//    },
     //----------------------------------------------------------
     // エディターにフォーカスしている時の設定 (editor->editorへの移動)
     //----------------------------------------------------------
