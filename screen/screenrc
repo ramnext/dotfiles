@@ -1,0 +1,37 @@
+# encoding settings
+defutf8 on
+defkanji utf-8
+defencoding utf8
+encoding utf8 utf8
+
+# messages settings
+startup_message off
+vbell off
+
+# escape key
+escape ^Qq
+
+# scrool lines
+defscrollback 10000
+
+# mouse scrool
+termcapinfo xterm* ti@:te@
+
+# clear buffer
+altscreen on
+
+# use shell
+shell /bin/bash
+
+# color settings
+defbce on
+term xterm-256color
+
+# status line setting
+#hardstatus alwayslastline "%{= KW} %H [%`] %{= Kw}|%{-} %-Lw%{= bW}%n%f %t%{-}%+Lw %=%C%a %Y-%M-%d"
+#hardstatus alwayslastline "%{= cd} %-w%{= dd} %n %t* %{-}%+w %= LoadAVG [%l] "
+#hardstatus alwayslastline "%{= cW} %Y/%m/%d %c:%s %-w%{= dd} %n %t* %{-}%+w %= %{= cW} %H LoadAVG [%l] "
+hardstatus alwayslastline "%?%F%{= Gk}%:%{= cw}%? %Y/%m/%d %02c:%s | %-w%{=bu dM} %n %t* %{-}%+w %= %?%F%{= Gk}%:%{= cw}%? %H LoadAVG [%l] "
+
+# hangup exit
+autodetach on
