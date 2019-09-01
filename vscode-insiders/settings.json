@@ -49,5 +49,13 @@
     "debug.inlineValues": true,
     "terminal.integrated.copyOnSelection": true,
     "git.autofetch": true,
-    "workbench.activityBar.visible": false
+    "workbench.activityBar.visible": false,
+    "vim.whichwrap": "h,l,<,>,[,]",
+    "editor.minimap.renderCharacters": false,
+    "editWithShell.shell.windows": "bash",
+    "editWithShell.shellArgs.windows": [
+        "-c"
+    ],
+    "editWithShell.processEntireTextIfNoneSelected": true,
+    "editor.lineNumbers": "relative"
 }
