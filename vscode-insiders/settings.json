@@ -36,6 +36,12 @@
             "after": ["<Esc>"]
         }
     ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["s"],
+            "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
+        }
+    ],
     "editor.renderWhitespace": "boundary",
     "search.exclude": {
         "**/.DS_Store": true,
@@ -65,5 +71,6 @@
     "editWithShell.processEntireTextIfNoneSelected": true,
     "editor.lineNumbers": "relative",
     "window.zoomLevel": 0,
-    "editor.cursorSmoothCaretAnimation": true
+    "editor.cursorSmoothCaretAnimation": true,
+    "vim.foldfix": true
 }
