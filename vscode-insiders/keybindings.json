@@ -94,11 +94,6 @@
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus"
     },
-    {
-        "key": "Enter",
-        "command": "explorer.openToSide",
-        "when": "explorerViewletVisible && filesExplorerFocus"
-    },
 
     //----------------------------------------------------------
     // Explorer viewのファイルをエディターで開く(サイドバー -> エディター)
@@ -108,6 +103,11 @@
         "command": "explorer.openToSide",
         "when": "explorerViewletFocus && explorerViewletVisible"
     },
+//    {
+//        "key": "Enter",
+//        "command": "explorer.openToSide",
+//        "when": "explorerViewletVisible && filesExplorerFocus"
+//    },
 
     //----------------------------------------------------------
     // 検索関連(* -> 検索UI)
