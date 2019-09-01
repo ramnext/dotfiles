@@ -29,6 +29,13 @@
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
+    "vim.whichwrap": "h,l,<,>,[,]",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
     "editor.renderWhitespace": "boundary",
     "search.exclude": {
         "**/.DS_Store": true,
@@ -50,7 +57,6 @@
     "terminal.integrated.copyOnSelection": true,
     "git.autofetch": true,
     "workbench.activityBar.visible": false,
-    "vim.whichwrap": "h,l,<,>,[,]",
     "editor.minimap.renderCharacters": false,
     "editWithShell.shell.windows": "bash",
     "editWithShell.shellArgs.windows": [
