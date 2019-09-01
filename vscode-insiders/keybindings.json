@@ -29,10 +29,6 @@
     // コマンドパレットオープン(*->コマンドパレット)
     //----------------------------------------------------------
     {
-        "key": "ctrl+o ctrl+o",
-        "command": "workbench.action.showCommands"
-    },
-    {
         "key": "ctrl+o o",
         "command": "workbench.action.showCommands"
     },
