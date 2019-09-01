@@ -242,12 +242,12 @@
     // terminal panelのトグル(*->terminal)
     //----------------------------------------------------------
     {
-        "key": "ctrl+o ctrl+t",
+        "key": "ctrl+;",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "!terminalFocus && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
     },
     {
-        "key": "ctrl+o ctrl+t",
+        "key": "ctrl+;",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
     },
@@ -405,6 +405,16 @@
     {
         "key": "g g",
         "command": "cursorTop",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+
+    //----------------------------------------------------------
+    // shell commandの操作系
+    //----------------------------------------------------------
+    // 選択している行のコマンドをターミナルで実行
+    {
+        "key": "ctrl+o ctrl+e",
+        "command": "workbench.action.terminal.runSelectedText",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
 
