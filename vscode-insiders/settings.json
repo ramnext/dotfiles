@@ -57,5 +57,7 @@
         "-c"
     ],
     "editWithShell.processEntireTextIfNoneSelected": true,
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "window.zoomLevel": 0,
+    "editor.cursorSmoothCaretAnimation": true
 }
