@@ -381,7 +381,7 @@
     //入力モードでカーソルを左にずらす
     {
         "key": "ctrl+h",
-        "command": "cursorRight",
+        "command": "cursorLeft",
         "when": "editorTextFocus && !editorReadOnly"
     },
 
