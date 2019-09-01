@@ -15,7 +15,7 @@
 |Debug viewの表示||ctrl+o d|
 |SCM Viewの表示||ctrl+o s|
 |problem panelの表示||ctrl+o ctrl+p|
-|debug console panelの表示||ctrl+o ctrl+d|
+|debug console panelの表示||ctrl+o ctrl+r|
 |output panelの表示||ctrl+o ctrl+o|
 |terminal panelの表示|ctrl+o ctrl+t|ctrl+o ctrl+t|
 |サジェストの選択||ctrl+k|
