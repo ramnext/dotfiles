@@ -21,5 +21,6 @@
     "bracket-pair-colorizer-2.showBracketsInGutter": true,
     "bracket-pair-colorizer-2.showBracketsInRuler": true,
     "python.dataScience.sendSelectionToInteractiveWindow": true,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile"
 }
