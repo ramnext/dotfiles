@@ -28,7 +28,7 @@ function fish_user_key_bindings
     bind -M insert \eb backward-char
 
     # Input new line escape
-    bind -M insert \ci 'commandline -i \\\\\n'
+    bind -M insert \ei 'commandline -i \\\\\n'
 
     ### fzf ###
     set -q FZF_LEGACY_KEYBINDINGS
@@ -140,10 +140,10 @@ set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
 ##
 ## sqlite for COMPILE
 ##
-set -gx LDFLAGS "-L/usr/local/opt/sqlite/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/sqlite/include"
+set -gx LDFLAGS "-L/usr/local/opt/readline/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/readline/include"
 
-set -gx PKG_CONFIG_PATH "/usr/local/opt/sqlite/lib/pkgconfig"
+set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 
 ###
 ### byobu
