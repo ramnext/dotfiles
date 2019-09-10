@@ -134,6 +134,11 @@ alias lzd="lazydocker"
 set -gx EDITOR vi
 
 ###
+### coreutils
+###
+set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
+
+###
 ### sqlite
 ###
 set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
@@ -149,4 +154,3 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 ### byobu
 ###
 set -gx BYOBU_PREFIX "/usr/local"
-set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
