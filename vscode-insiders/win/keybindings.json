@@ -389,18 +389,18 @@
     // gitの操作系(uiの移動なし)
     //----------------------------------------------------------
     // VSCode defaultのgd/gq/gb/ghコマンドが使用できなくなるので一旦、廃止
+    {
+        "key": "f c",
+        "command": "git.commit",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "f a",
+        "command": "git.stage",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
 //    {
-//        "key": "g c",
-//        "command": "git.commit",
-//        "when": "editorTextFocus && vim.mode == 'Normal'"
-//    },
-//    {
-//        "key": "g a",
-//        "command": "git.stage",
-//        "when": "editorTextFocus && vim.mode == 'Normal'"
-//    },
-//    {
-//        "key": "g g",
+//        "key": "f g",
 //        "command": "cursorTop",
 //        "when": "editorTextFocus && vim.mode == 'Normal'"
 //    },
