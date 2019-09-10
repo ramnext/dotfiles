@@ -1,0 +1,79 @@
+{
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "python.insidersChannel": "off",
+    "workbench.iconTheme": "vscode-icons",
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "C:\\Users\\z1h6022\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
+        "vs-kubernetes.minikube-path": "C:\\Users\\z1h6022\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe",
+        "vs-kubernetes.draft-path": "C:\\Users\\z1h6022\\.vs-kubernetes\\tools\\draft\\windows-amd64\\draft.exe"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "editor.fontFamily": "HackGen, Ricty Diminished Discord with-icons, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "debug.console.fontSize": 16,
+    "terminal.integrated.fontFamily": "HackGen Console for Powerline, Ricty Diminished Discord with-icons, Consolas, Courier New, monospace",
+    "terminal.integrated.fontSize": 16,
+    "workbench.startupEditor": "none",
+    "vim.sneak": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.leader": " ",
+    "vim.easymotion": true,
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "vim.whichwrap": "h,l,<,>,[,]",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["s"],
+            "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
+        }
+    ],
+    "editor.renderWhitespace": "boundary",
+    "search.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/env": true,
+        "tags": true
+    },
+    "files.exclude": {
+        "**/.svn": false
+    },
+    "workbench.editor.labelFormat": "short",
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.openPositioning": "first",
+    "debug.inlineValues": true,
+    "terminal.integrated.copyOnSelection": true,
+    "git.autofetch": true,
+    "workbench.activityBar.visible": false,
+    "editor.minimap.renderCharacters": false,
+    "editWithShell.shell.windows": "bash",
+    "editWithShell.shellArgs.windows": [
+        "-c"
+    ],
+    "editWithShell.processEntireTextIfNoneSelected": true,
+    "editor.lineNumbers": "relative",
+    "window.zoomLevel": 0,
+    "editor.cursorSmoothCaretAnimation": true,
+    "vim.foldfix": true
+}
