@@ -1,35 +1,48 @@
 {
-    "python.insidersChannel": "off",
-    "workbench.iconTheme": "vscode-icons",
-    "vs-kubernetes": {
-        "vs-kubernetes.helm-path": "/Users/toshis/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-        "vs-kubernetes.kubectl-path": "/Users/toshis/.vs-kubernetes/tools/kubectl/kubectl",
-        "vs-kubernetes.minikube-path": "/Users/toshis/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
-        "vs-kubernetes.draft-path": "/Users/toshis/.vs-kubernetes/tools/draft/darwin-amd64/draft"
-    },
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.jediEnabled": false,
-    "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true
-    },
-    "explorer.confirmDragAndDrop": false,
-    "editor.fontFamily": "Ricty Diminished Discord with-icons, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 16,
     "debug.console.fontSize": 16,
+    "debug.inlineValues": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontFamily": "HackGen, Ricty Diminished Discord with-icons, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.renderCharacters": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.suggestSelection": "first",
+    "editor.wordWrap": "on",
+    "editWithShell.processEntireTextIfNoneSelected": true,
+    "editWithShell.shell.windows": "bash",
+    "explorer.confirmDragAndDrop": false,
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "python.insidersChannel": "off",
+    "python.jediEnabled": false,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.fontFamily": "HackGen Console for Powerline, Ricty Diminished Discord with-icons, Consolas, Courier New, monospace",
     "terminal.integrated.fontSize": 16,
-    "workbench.startupEditor": "none",
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "vim.camelCaseMotion.enable": true,
+    "vim.easymotion": true,
+    "vim.foldfix": true,
+    "vim.hlsearch": true,
+    "vim.leader": " ",
     "vim.sneak": true,
     "vim.sneakUseIgnorecaseAndSmartcase": true,
-    "vim.camelCaseMotion.enable": true,
-    "vim.leader": " ",
-    "vim.easymotion": true,
-    "editor.wordWrap": "on",
-    "files.trimTrailingWhitespace": true,
     "vim.useSystemClipboard": true,
-    "vim.hlsearch": true,
     "vim.visualstar": true,
     "vim.whichwrap": "h,l,<,>,[,]",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.labelFormat": "short",
+    "workbench.editor.openPositioning": "first",
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "none",
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "j"],
@@ -42,7 +55,6 @@
             "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
         }
     ],
-    "editor.renderWhitespace": "boundary",
     "search.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
@@ -53,24 +65,16 @@
     "files.exclude": {
         "**/.svn": false
     },
-    "workbench.editor.labelFormat": "short",
-    "workbench.editor.revealIfOpen": true,
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.editor.tabCloseButton": "off",
-    "workbench.editor.openPositioning": "first",
-    "debug.inlineValues": true,
-    "terminal.integrated.copyOnSelection": true,
-    "git.autofetch": true,
-    "workbench.activityBar.visible": false,
-    "editor.minimap.renderCharacters": false,
-    "editWithShell.shell.windows": "bash",
     "editWithShell.shellArgs.windows": [
         "-c"
     ],
-    "editWithShell.processEntireTextIfNoneSelected": true,
-    "editor.lineNumbers": "relative",
-    "window.zoomLevel": 0,
-    "editor.cursorSmoothCaretAnimation": true,
-    "vim.foldfix": true
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/Users/toshis/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.kubectl-path": "/Users/toshis/.vs-kubernetes/tools/kubectl/kubectl",
+        "vs-kubernetes.minikube-path": "/Users/toshis/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.draft-path": "/Users/toshis/.vs-kubernetes/tools/draft/darwin-amd64/draft"
+    },
 }
