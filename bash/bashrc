@@ -176,13 +176,14 @@ export SDKMAN_DIR="/home/z1h6022/.sdkman"
 [[ -s "/home/z1h6022/.sdkman/bin/sdkman-init.sh" ]] && source "/home/z1h6022/.sdkman/bin/sdkman-init.sh"
 
 ## aliases for exa
-alias l="exa -lgF --group-directories-first"
-alias ls='exa --group-directories-first'
-alias l1="exa -1gF"
-alias la="exa -lgFa --group-directories-first"
-alias lr="exa -lgFr --group-directories-first"
-alias lt="exa -T"
-alias lT="exa -lT"
+alias l="exa -lgF --group-directories-first --icons"
+alias ls='exa --group-directories-first --icons'
+alias l1="exa -1gF --icons"
+alias la="exa -lgFa --group-directories-first --icons"
+alias lr="exa -lgFr --group-directories-first --icons"
+alias lt="exa -T --icons"
+alias lT="exa -lT --icons"
+alias ld="exa -lgFa --only-dirs --icons"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
