@@ -117,13 +117,14 @@ alias glog="git log --graph --date=iso --pretty='[%ad]%C(auto) %h%d %Cgreen%an%C
 alias gll="git log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
 
 ## aliases for exa
-alias ls='exa --group-directories-first'
-alias l1="exa -1gF"
-alias ll="exa -lgF --group-directories-first"
-alias la="exa -lgFa --group-directories-first"
-alias lr="exa -lgFr --group-directories-first"
-alias lt="exa -T"
-alias lT="exa -lT"
+alias l="exa -lgF --group-directories-first --icons"
+alias ls='exa --group-directories-first --icons'
+alias l1="exa -1gF --icons"
+alias la="exa -lgFa --group-directories-first --icons"
+alias lr="exa -lgFr --group-directories-first --icons"
+alias lt="exa -T --icons"
+alias lT="exa -lT --icons"
+alias ld="exa -lgFa --only-dirs --icons"
 
 ## alias for lazydocker
 alias lzd="lazydocker"
