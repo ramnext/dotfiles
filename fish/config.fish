@@ -154,4 +154,5 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 ###
 ### byobu
 ###
+set -gx VTE_CJK_WIDTH 1
 set -gx BYOBU_PREFIX "/usr/local"
