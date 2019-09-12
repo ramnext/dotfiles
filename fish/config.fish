@@ -85,22 +85,81 @@ function fish_user_key_bindings
 #@    end
 end
 
-# base path config
+###
+### base path config
+###
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+set -gx LD_LIBRARY_PATH "/usr/local/lib"
 
 ## bobthefish settings
+##
 set -g theme_color_scheme dracula
 set -g theme_nerd_fonts yes
 #@set -g theme_display_date no
 #@set -g theme_date_format "+%m/%d %H:%M:%S"
 set -g theme_newline_cursor yes
 
-###
-### anyenv
-###
-status --is-interactive; and source (anyenv init -|psub)
+## EDITOR
+##
+set -gx EDITOR vi
 
-## aliases for git
+## byobu
+##
+set -gx VTE_CJK_WIDTH 1
+
+## rust setting
+##
+set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
+
+## grc setting
+##
+if test -s "/etc/grc.fish"
+    source /etc/grc.fish
+end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#@eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
+###
+### setting by OS
+###
+switch (uname)
+case Darwin
+    ## coreutils
+    ##
+    set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
+
+    ## sqlite
+    ##
+    set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
+    ## sqlite for COMPILE
+    ##
+    set -gx LDFLAGS "-L/usr/local/opt/readline/lib"
+    set -gx CPPFLAGS "-I/usr/local/opt/readline/include"
+    set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
+
+    ## byobu
+    ##
+    set -gx BYOBU_PREFIX "/usr/local"
+
+    ## anyenv
+    ##
+    status --is-interactive; and source (anyenv init -|psub)
+case Linux
+    ## go tools setting
+    ##
+    set -gx GOROOT "$HOME/go"
+    set -gx GOPATH "$GOROOT/bin"
+case '*'
+end
+
+###
+### alias define
+###
+
+## for git
 alias g="git"
 alias gs="git status"
 alias gd="git diff"
@@ -116,7 +175,7 @@ alias gba="git branch -a"
 alias glog="git log --graph --date=iso --pretty='[%ad]%C(auto) %h%d %Cgreen%an%Creset : %s'"
 alias gll="git log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
 
-## aliases for exa
+## for exa
 alias l="exa -lgF --group-directories-first --icons"
 alias ls='exa --group-directories-first --icons'
 alias l1="exa -1gF --icons"
@@ -126,33 +185,5 @@ alias lt="exa -T --icons"
 alias lT="exa -lT --icons"
 alias ld="exa -lgFa --only-dirs --icons"
 
-## alias for lazydocker
+## for lazydocker
 alias lzd="lazydocker"
-
-###
-### EDITOR
-###
-set -gx EDITOR vi
-
-###
-### coreutils
-###
-set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
-
-###
-### sqlite
-###
-set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
-##
-## sqlite for COMPILE
-##
-set -gx LDFLAGS "-L/usr/local/opt/readline/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/readline/include"
-
-set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
-
-###
-### byobu
-###
-set -gx VTE_CJK_WIDTH 1
-set -gx BYOBU_PREFIX "/usr/local"
