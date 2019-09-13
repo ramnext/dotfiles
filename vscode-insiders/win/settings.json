@@ -1,9 +1,7 @@
 {
-    "debug.console.fontSize": 16,
     "debug.inlineValues": true,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "HackGen, Ricty Diminished Discord with-icons, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 16,
     "editor.lineNumbers": "relative",
     "editor.minimap.renderCharacters": false,
     "editor.renderWhitespace": "boundary",
@@ -18,7 +16,6 @@
     "python.jediEnabled": false,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontFamily": "HackGen Console for Powerline, Ricty Diminished Discord with-icons, Consolas, Courier New, monospace",
-    "terminal.integrated.fontSize": 16,
     "terminal.integrated.shell.linux": "/bin/bash",
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
     "vim.camelCaseMotion.enable": true,
@@ -43,6 +40,7 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
+    "files.autoGuessEncoding": true,
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "j"],
