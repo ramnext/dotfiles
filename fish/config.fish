@@ -89,7 +89,6 @@ end
 ### base path config
 ###
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
-set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
 set -gx LD_LIBRARY_PATH "/usr/local/lib"
 
 ## bobthefish settings
@@ -128,6 +127,10 @@ end
 ###
 switch (uname)
 case Darwin
+    ## openssl
+    ##
+    set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
+
     ## coreutils
     ##
     set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
