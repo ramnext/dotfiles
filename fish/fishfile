@@ -6,3 +6,4 @@ fisherman/gitignore
 fisherman/z
 oh-my-fish/plugin-balias
 oh-my-fish/theme-bobthefish
+evanlucas/fish-kubectl-completions
