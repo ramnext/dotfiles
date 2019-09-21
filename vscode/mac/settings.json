@@ -1,0 +1,11 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "git.path": "/usr/bin/git",
+    "editor.fontFamily": "HackGen35, Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 16,
+    "editor.fontSize": 14,
+    "debug.console.fontSize": 14,
+    "terminal.integrated.fontFamily": "Ricty Diminished Discord with-icons"
+}
