@@ -93,11 +93,11 @@ set -gx LD_LIBRARY_PATH "/usr/local/lib"
 
 ## bobthefish settings
 ##
-set -g theme_color_scheme dracula
-set -g theme_nerd_fonts yes
+#set -g theme_color_scheme dracula
+#set -g theme_nerd_fonts yes
 #@set -g theme_display_date no
 #@set -g theme_date_format "+%m/%d %H:%M:%S"
-set -g theme_newline_cursor yes
+#set -g theme_newline_cursor yes
 
 ## EDITOR
 ##
@@ -110,6 +110,7 @@ set -gx VTE_CJK_WIDTH 1
 ## rust setting
 ##
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
+eval (starship init fish)
 
 ## grc setting
 ##
