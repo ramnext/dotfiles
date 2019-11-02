@@ -110,7 +110,7 @@ set -gx VTE_CJK_WIDTH 1
 ## rust setting
 ##
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
-eval (starship init fish)
+starship init fish | source
 
 ## grc setting
 ##
