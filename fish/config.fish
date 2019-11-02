@@ -155,8 +155,13 @@ case Darwin
 case Linux
     ## go tools setting
     ##
-    set -gx GOROOT "$HOME/go"
-    set -gx GOPATH "$GOROOT/bin"
+    set -gx GOPATH "$HOME/go"
+    set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
+
+    ## python setting
+    ##
+    alias python3="python3.7"
+    alias python3-venv="python3.7-venv"
 case '*'
 end
 

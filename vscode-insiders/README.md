@@ -2,11 +2,12 @@
 
 |機能|vim|vscode|
 |:-|:-:|-:|
-|コマンドラインパレットの表示||ctrl+o ctrl+p|
+|コマンドラインパレットの表示||ctrl+o o|
 |vscodeのviewを選択||ctrl+o v, ctrl+o ctrl+v|
 |Explorer viewのトグル|\ v|\ v|
 |Explorer viewの表示|ctrl+o w|ctrl+o w|
-|Explorer viewLetへの移動||ctrl+o h|
+|サイドバーへの移動||ctrl+o h|
+|サイドバーからの移動||ctrl+o l|
 |Explorer viewLetでのファイル名編集||ctrl+r, Enter|
 |Explorer viewLetのファイルをEditorで開く||ctrl+l|
 |Search viewの表示|ctrl+o g|ctrl+o g|
@@ -14,10 +15,12 @@
 |Workbench QuickOpen close||ctrl+[|
 |Debug viewの表示||ctrl+o d|
 |SCM Viewの表示||ctrl+o s|
+|:-|:-:|-:|
 |problem panelの表示||ctrl+o ctrl+p|
 |debug console panelの表示||ctrl+o ctrl+r|
 |output panelの表示||ctrl+o ctrl+o|
-|terminal panelの表示|ctrl+o ctrl+t|ctrl+o ctrl+t|
+|terminal panelの表示|ctrl+o ctrl+t|ctrl+;|
+|:-|:-:|-:|
 |サジェストの選択||ctrl+k|
 |サジェストのキャンセル||ctrl+[|
 |サジェスト候補の移動（下）||ctrl+n|
@@ -32,13 +35,18 @@
 |スニペットの選択||ctrl+k|
 |スニペットのプレースホルダー移動||ctrl+k|
 |スニペットのプレースホルダー戻る||ctrl+h|
+|:-|:-:|-:|
 |実装している箇所に移動する|ctrl+o ctrl+i|ctrl+o ctrl+i|
 |宣言している箇所に移動する|ctrl+o ctrl+d|ctrl+o ctrl+d|
+|:-|:-:|-:|
 |buffer(editor)間の移動(右) (vscodeだとeditor group関係なく移動します)|ctrl+w l|ctrl+w ctrl+l|
 |buffer(editor)間の移動(左) (vscodeだとeditor group関係なく移動します)|ctrl+w h|ctrl+w ctrl+h|
 |insertモードへ入っているときにカーソルを右へ移動|ctrl+l|ctrl+l|
 |insertモードへ入っているときにカーソルを左へ移動|ctrl+h|ctrl+h|
-|git add|g a|g a|
-|git status|g s|
-|git commit|g c|g c|
+|:-|:-:|-:|
+|git add|g a|f a|
+|git commit|g c|f c|
+|git status|||
+|:-|:-:|-:|
 |ファイルの1行目に移動|g g|g g|
+|選択している行のコマンドをターミナルで実行||ctrl+o ctrl+e|
