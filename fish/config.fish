@@ -118,6 +118,12 @@ if test -s "/etc/grc.fish"
     source /etc/grc.fish
 end
 
+## ghq setting
+if test ! -d "$HOME/repos"
+    mkdir -p $HOME/repos
+end
+set -x GHQ_ROOT $HOME/repos
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 #@eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
