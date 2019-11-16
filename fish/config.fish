@@ -107,6 +107,10 @@ set -gx EDITOR vi
 ##
 set -gx VTE_CJK_WIDTH 1
 
+## golang setting
+##
+set -g fish_user_paths "/usr/local/go/bin" $fish_user_paths
+
 ## rust setting
 ##
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
@@ -161,7 +165,7 @@ case Darwin
 case Linux
     ## go tools setting
     ##
-    set -gx GOPATH "$HOME/go"
+    set -x -U GOPATH $HOME/go
     set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
 
     ## python setting
