@@ -120,9 +120,11 @@ if ! shopt -oq posix; then
 fi
 
 # proxy setting
-export http_proxy=http://z1h6022:ki__CP+7@ctcpro.ctc-g.co.jp:8080
+export http_proxy=http://z1h6022:ki__CP+8@ctcpro.ctc-g.co.jp:8080
 export https_proxy=${http_proxy}
 export no_proxy=127.0.0.1,localhost,10.213.194.96,10.213.194.105,10.213.194.107
+export http_proxy_user=z1h6022
+export http_proxy_pass=ki__CP+8
 
 # ssh-agent setting
 # 有効時間（好きな秒数に設定)
@@ -146,7 +148,7 @@ export GOPATH=${HOME}/go
 export PATH=${PATH}:${GOPATH}/bin
 
 # rust setting
-export PATH=${PATH}:${HOME}/.cargo/bin
+source ${HOME}/.cargo/env
 
 # starship setting
 # * describe under rust settings
@@ -184,6 +186,10 @@ alias lr="exa -lgFr --group-directories-first --icons"
 alias lt="exa -T --icons"
 alias lT="exa -lT --icons"
 alias ld="exa -lgFa --only-dirs --icons"
+
+## aliases for python
+alias python3="python3.7"
+alias python3-venv="python3.7-venv"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
