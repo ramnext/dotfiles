@@ -9,7 +9,7 @@ startup_message off
 vbell off
 
 # escape key
-escape ^Qq
+escape ^Mm
 
 # scrool lines
 defscrollback 10000
