@@ -30,6 +30,6 @@ function cdl
     if test $cd_status -ne 0
         return 1
     end
-    exa -lgF --group-directories-first --icons
+    exa -lhgF --group-directories-first --icons
     return $status
 end
