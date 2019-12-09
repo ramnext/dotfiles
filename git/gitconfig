@@ -1,3 +1,6 @@
 [user]
 	name = ramnext
 	email = ramnextevolutions@gmail.com
+
+[core]
+        excludesfile = ~/.gitignore_global
