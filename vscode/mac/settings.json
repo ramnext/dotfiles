@@ -3,9 +3,20 @@
     "editor.fontFamily": "HackGen35, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
     "editor.suggestSelection": "first",
+    "files.autoSave": "afterDelay",
     "git.path": "/usr/bin/git",
+    "gitlens.views.repositories.location": "scm",
+    "gitlens.views.fileHistory.location": "scm",
+    "gitlens.views.lineHistory.location": "scm",
+    "gitlens.views.compare.location": "scm",
+    "gitlens.views.search.location": "scm",
     "python.jediEnabled": false,
     "terminal.integrated.fontFamily": "Ricty Diminished Discord with-icons",
     "terminal.integrated.fontSize": 16,
+    "terminal.integrated.rendererType": "dom",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/home/parallels/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vs-kubernetes.draft-path": "/home/parallels/.vs-kubernetes/tools/draft/linux-amd64/draft"
+    },
 }
