@@ -67,19 +67,19 @@
         "command": "workbench.view.explorer",
         "when": "!explorerViewletVisible && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
     },
-    // サイドバーへの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーへの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
     {
         "key": "ctrl+o h",
         "command": "workbench.action.focusSideBar",
         "when": "editorFocus"
     },
-    // サイドバーからの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーからの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
     {
         "key": "ctrl+o l",
         "command": "workbench.action.focusFirstEditorGroup",
         "when": "!editorFocus"
     },
-    // サイドバーからの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーからの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
     {
         "key": "ctrl+o l",
         "command": "workbench.action.navigateEditorGroups",
@@ -391,17 +391,17 @@
     //----------------------------------------------------------
     // VSCode defaultのgd/gq/gb/ghコマンドが使用できなくなるので一旦、廃止
     {
-        "key": "f c",
+        "key": "g c",
         "command": "git.commit",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
-        "key": "f a",
+        "key": "g a",
         "command": "git.stage",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
 //    {
-//        "key": "f g",
+//        "key": "g g",
 //        "command": "cursorTop",
 //        "when": "editorTextFocus && vim.mode == 'Normal'"
 //    },
