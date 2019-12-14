@@ -346,17 +346,17 @@
     // エディターにフォーカスしている時の設定 (editor->editorへの移動)
     //----------------------------------------------------------
     // 実装箇所にコードジャンプ
-    {
-        "key": "ctrl+o ctrl+i",
-        "command": "editor.action.goToImplementation",
-        "when": "editorFocus"
-    },
+    // {
+    //     "key": "ctrl+o ctrl+i",
+    //     "command": "editor.action.goToImplementation",
+    //     "when": "editorFocus && !isInEmbeddedEditor"
+    // },
     // 宣言箇所に移動
-    {
-        "key": "ctrl+o ctrl+d",
-        "command": "editor.action.goToDeclaration",
-        "when": "editorFocus"
-    },
+    // {
+    //     "key": "ctrl+o ctrl+d",
+    //     "command": "editor.action.goToDeclaration",
+    //     "when": "editorFocus && !isInEmbeddedEditor"
+    // },
     // 左側のエディターに移動
     {
         "key": "ctrl+o ctrl+h",
