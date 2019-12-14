@@ -70,7 +70,7 @@
     // サイドバーへの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
     {
         "key": "ctrl+o h",
-        "command": "workbench.action.focusSideBar",
+        "command": "workbench.explorer.fileView.focus",
         "when": "editorFocus"
     },
     // サイドバーからの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
