@@ -162,6 +162,10 @@ case Darwin
     ## anyenv
     ##
     status --is-interactive; and source (anyenv init -|psub)
+
+    ## browser setting
+    alias safari="open -a Safari"
+    alias firefox="open -a Firefox"
 case Linux
     ## go tools setting
     ##
