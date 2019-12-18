@@ -67,19 +67,19 @@
         "command": "workbench.view.explorer",
         "when": "!explorerViewletVisible && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
     },
-    // サイドバーへの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーへの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
     {
         "key": "ctrl+o h",
-        "command": "workbench.action.focusSideBar",
+        "command": "workbench.explorer.fileView.focus",
         "when": "editorFocus"
     },
-    // サイドバーからの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーからの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
     {
         "key": "ctrl+o l",
         "command": "workbench.action.focusFirstEditorGroup",
         "when": "!editorFocus"
     },
-    // サイドバーからの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーからの移動 (ctrl+hをhにしてctrlを離すだけで切り替わる)
     {
         "key": "ctrl+o l",
         "command": "workbench.action.navigateEditorGroups",
@@ -346,23 +346,24 @@
     // エディターにフォーカスしている時の設定 (editor->editorへの移動)
     //----------------------------------------------------------
     // 実装箇所にコードジャンプ
-    {
-        "key": "ctrl+o ctrl+i",
-        "command": "editor.action.goToImplementation",
-        "when": "editorFocus"
-    },
+    // {
+    //     "key": "ctrl+o ctrl+i",
+    //     "command": "editor.action.goToImplementation",
+    //     "when": "editorFocus && !isInEmbeddedEditor"
+    // },
     // 宣言箇所に移動
-    {
-        "key": "ctrl+o ctrl+d",
-        "command": "editor.action.goToDeclaration",
-        "when": "editorFocus"
-    },
-    // 手前のエディターに移動
+    // {
+    //     "key": "ctrl+o ctrl+d",
+    //     "command": "editor.action.goToDeclaration",
+    //     "when": "editorFocus && !isInEmbeddedEditor"
+    // },
+    // 左側のエディターに移動
     {
         "key": "ctrl+o ctrl+h",
         "command": "workbench.action.previousEditor",
         "when": "editorFocus"
     },
+    // 右側のエディターに移動
     {
         "key": "ctrl+o ctrl+l",
         "command": "workbench.action.nextEditor",
@@ -390,20 +391,15 @@
     //----------------------------------------------------------
     // VSCode defaultのgd/gq/gb/ghコマンドが使用できなくなるので一旦、廃止
     {
-        "key": "f c",
+        "key": "[IntlYen] c",
         "command": "git.commit",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
-        "key": "f a",
+        "key": "[IntlYen] a",
         "command": "git.stage",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
-//    {
-//        "key": "f g",
-//        "command": "cursorTop",
-//        "when": "editorTextFocus && vim.mode == 'Normal'"
-//    },
 
     //----------------------------------------------------------
     // shell commandの操作系
