@@ -16,6 +16,8 @@ sudo -E apt install -y \
     neovim \
     tig \
     golang-go \
+    python3.8 \
+    python3.8-venv \
     fish
 
 # install Rust and tools
