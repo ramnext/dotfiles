@@ -10,6 +10,7 @@
     "gitlens.views.lineHistory.location": "scm",
     "gitlens.views.compare.location": "scm",
     "gitlens.views.search.location": "scm",
+    "problems.showCurrentInStatus": true,
     "python.jediEnabled": false,
     "terminal.integrated.fontFamily": "Ricty Diminished Discord with-icons",
     "terminal.integrated.fontSize": 16,
