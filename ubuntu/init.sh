@@ -12,11 +12,19 @@ sudo -E apt install -y \
     software-properties-common
 sudo -E apt install -y \
     git \
-    fzf \
     neovim \
     tig \
     golang-go \
     fish
+
+# install fzf
+#
+if [ -d $HOME/.fzf ]; then
+    echo "fzf is already installed!!"
+else
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    $HOME/.fzf/install
+fi
 
 # install Rust and tools
 #
@@ -42,6 +50,7 @@ else
 fi
 ln -sfv $HOME/dotfiles/fish/config.fish $HOME/.config/fish/config.fish
 ln -sfv $HOME/dotfiles/fish/fishfile $HOME/.config/fish/fishfile
+ln -sfv $HOME/dotfiles/fish/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
 
 # install golang tools
 #
