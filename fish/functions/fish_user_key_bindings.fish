@@ -62,19 +62,4 @@ function fish_user_key_bindings
     if bind -M insert >/dev/null 2>/dev/null
         bind -M insert \cg '__ghq_repository_search'
     end
-
-#@    # Bind for prco history to Ctrl+h
-#@    bind \cs 'peco_select_history (commandline -b)'
-#@    # Bind for prco Recent history to Ctrl+g
-#@    bind \ch 'peco_recentd'
-#@    # Bidn for ghq history to Ctrl+]
-#@    bind \c] peco_select_ghq_repository # ghq用のリポジトリ候補表示
-#@    # Bidn for gh-open history to Ctrl+o
-#@    bind \co peco_open_gh_repository # gh-openの呼び出し
-#@    if bind -M insert >/dev/null 2>/dev/null
-#@        bind -M insert \cs 'peco_select_history (commandline -b)'
-#@        bind -M insert \ch 'peco_recentd'
-#@        bind -M insert \c] 'peco_select_ghq_repository' # ghq用のリポジトリ候補表示
-#@        bind -M insert \co 'peco_open_gh_repository'    # gh-openの呼び出し
-#@    end
 end
