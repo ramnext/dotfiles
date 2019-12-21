@@ -103,6 +103,10 @@ set -gx LD_LIBRARY_PATH "/usr/local/lib"
 ##
 set -gx EDITOR vi
 
+## fzf settings
+##
+status is-login; and set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
+
 ## byobu
 ##
 set -gx VTE_CJK_WIDTH 1
