@@ -13,7 +13,8 @@ sudo -E apt install -y \
 sudo -E apt install -y \
     git \
     neovim \
-    lpass \
+    bat \
+    lastpass-cli \
     tmux \
     tig \
     golang-go \
