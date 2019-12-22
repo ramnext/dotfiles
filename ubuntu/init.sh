@@ -13,6 +13,8 @@ sudo -E apt install -y \
 sudo -E apt install -y \
     git \
     neovim \
+    lpass \
+    tmux \
     tig \
     golang-go \
     fish
@@ -51,6 +53,14 @@ fi
 ln -sfv $HOME/dotfiles/fish/config.fish $HOME/.config/fish/config.fish
 ln -sfv $HOME/dotfiles/fish/fishfile $HOME/.config/fish/fishfile
 ln -sfv $HOME/dotfiles/fish/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
+ln -sfv $HOME/dotfiles/fish/functions/fco.fish $HOME/.config/fish/functions/fco.fish
+ln -sfv $HOME/dotfiles/fish/functions/fcoc.fish $HOME/.config/fish/functions/fcoc.fish
+ln -sfv $HOME/dotfiles/fish/functions/fpass.fish $HOME/.config/fish/functions/fpass.fish
+ln -sfv $HOME/dotfiles/fish/functions/fssh.fish $HOME/.config/fish/functions/fssh.fish
+ln -sfv $HOME/dotfiles/fish/functions/fpass.fish $HOME/.config/fish/functions/fpass.fish
+ln -sfv $HOME/dotfiles/fish/functions/fcoc.fish $HOME/.config/fish/functions/fcoc.fish
+ln -sfv $HOME/dotfiles/fish/functions/fco.fish $HOME/.config/fish/functions/fco.fish
+ln -sfv $HOME/dotfiles/fish/functions/fzf-complete.fish $HOME/.config/fish/functions/fzf-complete.fish
 
 # install golang tools
 #
