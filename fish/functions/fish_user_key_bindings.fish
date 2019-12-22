@@ -39,13 +39,13 @@ function fish_user_key_bindings
             bind -M insert \eC '__fzf_cd --hidden'
         end
     else
-        bind \cs '__fzf_find_file'
+        bind \co '__fzf_find_file'
         bind \cr '__fzf_reverse_isearch'
         bind \eo '__fzf_cd'
         bind \eO '__fzf_cd --hidden'
         bind \ct '__fzf_open --editor'
         if bind -M insert >/dev/null 2>/dev/null
-            bind -M insert \cs '__fzf_find_file'
+            bind -M insert \co '__fzf_find_file'
             bind -M insert \cr '__fzf_reverse_isearch'
             bind -M insert \eo '__fzf_cd'
             bind -M insert \eO '__fzf_cd --hidden'

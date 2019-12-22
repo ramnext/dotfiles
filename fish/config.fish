@@ -26,6 +26,9 @@ set -gx EDITOR vi
 ## fzf settings
 ##
 status is-login; and set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+set -x FZF_LEGACY_KEYBINDINGS 0
+set -x FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 
 ## byobu
 ##
