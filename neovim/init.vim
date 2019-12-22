@@ -62,14 +62,17 @@ let g:strip_whitespace_confirm=0  " Not confirm.
 let g:indent_guides_enable_on_vim_startup = 1  " default guides on.
 
 "" nerdtree settings.
-nmap <C-e> :NERDTreeToggle<CR>  " keybinding Ctrl-e
+nmap <C-e> :NERDTreeToggle<CR>  " keybinding Ctrl-e: NERDTree open/close toggle.
 
 "" tagbar settings.
-nmap <F8> :TagbarToggle<CR>     " keybinding F8
+nmap <F8> :TagbarToggle<CR>     " keybinding F8: Tag lists open/close toggle.
+
+"" fzf settings.
+nmap <C-p> :History<CR>         " keybinding C-p: Search past open file lists.
 
 "" editor settings
-set number  " display line number.
-set termguicolors  " use TrueColor.
+set number           " display line number.
+set termguicolors    " use TrueColor.
 
 " Tabstops
 set tabstop=4
