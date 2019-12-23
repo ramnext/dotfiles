@@ -12,13 +12,24 @@ sudo -E apt install -y \
     software-properties-common
 sudo -E apt install -y \
     git \
-    fzf \
     neovim \
+    bat \
+    lastpass-cli \
+    tmux \
     tig \
     golang-go \
     python3.8 \
     python3.8-venv \
     fish
+
+# install fzf
+#
+if [ -d $HOME/.fzf ]; then
+    echo "fzf is already installed!!"
+else
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    $HOME/.fzf/install
+fi
 
 # install Rust and tools
 #
@@ -28,7 +39,11 @@ else
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 source $HOME/.cargo/env
-cargo install exa ripgrep starship cargo-update
+cargo install \
+	exa \
+	ripgrep \
+	starship \
+	cargo-update
 
 # fish shell setting
 #
@@ -40,6 +55,15 @@ else
 fi
 ln -sfv $HOME/dotfiles/fish/config.fish $HOME/.config/fish/config.fish
 ln -sfv $HOME/dotfiles/fish/fishfile $HOME/.config/fish/fishfile
+ln -sfv $HOME/dotfiles/fish/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
+ln -sfv $HOME/dotfiles/fish/functions/fco.fish $HOME/.config/fish/functions/fco.fish
+ln -sfv $HOME/dotfiles/fish/functions/fcoc.fish $HOME/.config/fish/functions/fcoc.fish
+ln -sfv $HOME/dotfiles/fish/functions/fpass.fish $HOME/.config/fish/functions/fpass.fish
+ln -sfv $HOME/dotfiles/fish/functions/fssh.fish $HOME/.config/fish/functions/fssh.fish
+ln -sfv $HOME/dotfiles/fish/functions/fpass.fish $HOME/.config/fish/functions/fpass.fish
+ln -sfv $HOME/dotfiles/fish/functions/fcoc.fish $HOME/.config/fish/functions/fcoc.fish
+ln -sfv $HOME/dotfiles/fish/functions/fco.fish $HOME/.config/fish/functions/fco.fish
+ln -sfv $HOME/dotfiles/fish/functions/fzf-complete.fish $HOME/.config/fish/functions/fzf-complete.fish
 
 # install golang tools
 #
