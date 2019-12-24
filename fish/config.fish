@@ -28,13 +28,13 @@ set -gx EDITOR vi
 status is-login; and set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
 set -x FZF_LEGACY_KEYBINDINGS 0
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
-set -x FZF_DEFAULT_OPTS '--reverse --height 40%'
+set -x FZF_DEFAULT_OPTS '--reverse --height 80%'
 set -x FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_OPEN_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 set -x FZF_OPEN_OPTS '--preview "bat --color=always --style=header,grid --line-range :100 {}" --height 100%'
 set -x FZF_PREVIEW_DIR_CMD ls
 set -x FZF_PREVIEW_FILE_CMD 'bat --color=always --style=header,grid --line-range :100 {}'
-set -x FZF_TMUX_HEIGHT '40%'
+set -x FZF_TMUX_HEIGHT '80%'
 
 ## byobu
 ##
