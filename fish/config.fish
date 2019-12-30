@@ -34,6 +34,7 @@ set -x FZF_OPEN_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 set -x FZF_OPEN_OPTS '--preview "bat --color=always --style=header,grid --line-range :100 {}" --height 100%'
 set -x FZF_PREVIEW_DIR_CMD ls
 set -x FZF_PREVIEW_FILE_CMD 'bat --color=always --style=header,grid --line-range :100 {}'
+set -x FZF_TMUX 1
 set -x FZF_TMUX_HEIGHT '80%'
 
 ## byobu
