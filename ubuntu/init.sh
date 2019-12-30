@@ -14,13 +14,31 @@ sudo -E apt install -y \
     git \
     neovim \
     bat \
+    silversearcher-ag \
     lastpass-cli \
     tmux \
     tig \
     golang-go \
     python3.8 \
+    python3-pip \
     python3.8-venv \
     fish
+printf "***** %s end. *****\n\n" "[apt] package install"
+
+# dotfiles clone from github.com
+#
+git clone --recursive https://github.com/ramnext/dotfiles.git $HOME/dotfiles
+printf "***** %s end. *****\n\n" "[dotfiles] clone"
+
+# install python tools
+#
+pip3 install -U pip
+pip3 install -U --user \
+	flake8 \
+	jedi \
+	black \
+	neovim
+printf "***** %s end. *****\n\n" "[python tools] install"
 
 # install fzf
 #
@@ -30,13 +48,14 @@ else
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     $HOME/.fzf/install
 fi
+printf "***** %s end. *****\n\n" "[fzf] install"
 
 # install Rust and tools
 #
 if [ -f $HOME/.cargo/env ]; then
     echo "Rust is already installed!!"
 else
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl -fsSL https://starship.rs/install.sh | bash
 fi
 source $HOME/.cargo/env
 cargo install \
@@ -44,10 +63,11 @@ cargo install \
 	ripgrep \
 	starship \
 	cargo-update
+ln -sfv $HOME/dotfiles/starship/starship.toml  $HOME/.config/starship.toml
+printf "***** %s end. *****\n\n" "[Rust and tools] install"
 
 # fish shell setting
 #
-git clone --recursive https://github.com/ramnext/dotfiles.git $HOME/dotfiles
 if [ ! -d $HOME/.config/fish ]; then
     mkdir -p $HOME/.config/fish
 else
@@ -66,6 +86,7 @@ ln -sfv $HOME/dotfiles/fish/functions/fts.fish $HOME/.config/fish/functions/fts.
 ln -sfv $HOME/dotfiles/fish/functions/fzf-bcd-widget.fish $HOME/.config/fish/functions/fzf-bcd-widget.fish
 ln -sfv $HOME/dotfiles/fish/functions/fzf-cdhist-widget.fish $HOME/.config/fish/functions/fzf-cdhist-widget.fish
 ln -sfv $HOME/dotfiles/fish/functions/fzf-complete.fish $HOME/.config/fish/functions/fzf-complete.fish
+printf "***** %s end. *****\n\n" "[fish shell tools] install"
 
 # install golang tools
 #
@@ -75,6 +96,7 @@ if [ $? -eq 0 ]; then
 else
     go get github.com/motemen/ghq
 fi
+printf "***** %s end. *****\n\n" "[golang] install"
 
 # install Docker
 #
@@ -94,7 +116,10 @@ else
     sudo -E docker run hello-world
     sudo usermod -a -G docker $USER
 fi
+printf "***** %s end. *****\n\n" "[docker] install"
+
 # install docker-compose
+#
 (type docker-compose) > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "docker-compose is already exists!!"
@@ -102,6 +127,8 @@ else
     sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 fi
+printf "***** %s end. *****\n\n" "[docker-compose] install"
+
 # install Kubernetes
 #
 (type kubectl) > /dev/null 2>&1
@@ -117,6 +144,8 @@ EOF
         kubelet kubeadm kubectl
     sudo apt-mark hold kubelet kubeadm kubectl
 fi
+printf "***** %s end. *****\n\n" "[kubernetes] install"
+
 # install kind
 #
 (type kind) > /dev/null 2>&1
@@ -126,3 +155,5 @@ else
     sudo curl -L "https://github.com/kubernetes-sigs/kind/releases/download/v0.5.1/kind-$(uname)-amd64" -o /usr/local/bin/kind
     sudo chmod +x /usr/local/bin/kind
 fi
+printf "***** %s end. *****\n\n" "[kind] install"
+
