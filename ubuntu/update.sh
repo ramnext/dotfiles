@@ -19,7 +19,7 @@ echo "
 =========================
 update git repositories.
 ========================="
-ghq list | ghq import -u
+ghq list | ghq get -u
 
 echo "
 =========================
