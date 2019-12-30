@@ -58,6 +58,11 @@ if test ! -d "$HOME/repos"
 end
 set -x GHQ_ROOT $HOME/repos
 
+## anyenv
+##
+status is-login; and set -x fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+status --is-interactive; and source (anyenv init -|psub)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 #@eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
@@ -88,11 +93,6 @@ case Darwin
     ## byobu
     ##
     set -gx BYOBU_PREFIX "/usr/local"
-
-    ## anyenv
-    ##
-    status is-login; and set -x fish_user_paths $HOME/.anyenv/bin $fish_user_paths
-    status --is-interactive; and source (anyenv init -|psub)
 
     ## browser setting
     alias safari="open -a Safari"

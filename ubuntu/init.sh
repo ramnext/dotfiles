@@ -20,7 +20,6 @@ sudo -E apt install -y \
     tig \
     golang-go \
     python3.8 \
-    python3-pip \
     python3.8-venv \
     fish
 printf "***** %s end. *****\n\n" "[apt] package install"
@@ -32,7 +31,7 @@ printf "***** %s end. *****\n\n" "[dotfiles] clone"
 
 # install python tools
 #
-pip3 install -U pip
+curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
 pip3 install -U --user \
 	flake8 \
 	jedi \
@@ -66,10 +65,11 @@ cargo install \
 ln -sfv $HOME/dotfiles/starship/starship.toml  $HOME/.config/starship.toml
 printf "***** %s end. *****\n\n" "[Rust and tools] install"
 
-# fish shell setting
+# fish shell settings.
 #
 if [ ! -d $HOME/.config/fish ]; then
     mkdir -p $HOME/.config/fish
+    chsh -s /usr/bin/fish
 else
     echo "fish shell config is already exists!!"
 fi
@@ -97,6 +97,49 @@ else
     go get github.com/motemen/ghq
 fi
 printf "***** %s end. *****\n\n" "[golang] install"
+
+# anyenv settings.
+#
+if [ ! -d $HOME/.anyenv ]; then
+    git clone https://github.com/anyenv/anyenv ~/.anyenv
+	mkdir -p $HOME/.anyenv/plugins
+	git clone https://github.com/znz/anyenv-update.git $HOME/.anyenv/plugins/anyenv-update
+    git clone https://github.com/znz/anyenv-git.git $HOME/.anyenv/plugins/anyenv-git
+fi
+$HOME/.anyenv/bin/anyenv init
+(type anyenv) > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "anyenv is already exists!!"
+fi
+anyenv install --init
+printf "***** %s end. *****\n\n" "[anyenv] install"
+
+# nodenv settings.
+#
+(type nodenv) > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "nodenv is already exists!!"
+else
+    anyenv install nodenv
+fi
+version=(nodenv versions) 2> /dev/null
+if [ -z "$version" ]; then
+    nodenv install 13.5.0
+    nodenv global 13.5.0
+fi
+cd $HOME; npm install -g yarn; yarn add neovim
+
+# neovim settings.
+#
+if [ ! -d $HOME/.config/nvim ]; then
+    mkdir -p $HOME/.config/nvim
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+    echo "neovim config is already exists!!"
+fi
+ln -sfv $HOME/dotfiles/neovim/init.vim $HOME/.config/nvim/init.vim
+printf "***** %s end. *****\n\n" "[neovim] install"
 
 # install Docker
 #
@@ -156,4 +199,3 @@ else
     sudo chmod +x /usr/local/bin/kind
 fi
 printf "***** %s end. *****\n\n" "[kind] install"
-
