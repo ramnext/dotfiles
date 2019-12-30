@@ -1,0 +1,49 @@
+#default prompt_order = [
+#default     "username",
+#default     "hostname",
+#default     "kubernetes",
+#default     "directory",
+#default     "git_branch",
+#default     "git_commit",
+#default     "git_state",
+#default     "git_status",
+#default     "hg_branch",
+#default     "package",
+#default     "dotnet",
+#default     "golang",
+#default     "java",
+#default     "nodejs",
+#default     "php",
+#default     "python",
+#default     "ruby",
+#default     "rust",
+#default     "terraform",
+#default     "nix_shell",
+#default     "conda",
+#default     "memory_usage",
+#default     "aws",
+#default     "env_var",
+#default     "cmd_duration",
+#default     "line_break",
+#default     "jobs",
+#default     "battery",
+#default     "time",
+#default     "character",
+#default ]
+
+[time]
+disabled = false
+format = "🕙[ %T ]"
+utc_time_offset = -9
+
+[env_var]
+variable = "STARSHIP_SHELL"
+default = "unknown shell"
+
+[memory_usage]
+disabled = false
+threshold = -1
+show_percentage = true
+
+[kubernetes]
+disabled = false
