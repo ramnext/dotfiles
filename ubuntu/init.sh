@@ -139,6 +139,7 @@ else
     echo "neovim config is already exists!!"
 fi
 ln -sfv $HOME/dotfiles/neovim/init.vim $HOME/.config/nvim/init.vim
+ln -sfv $HOME/dotfiles/neovim/coc-settings.json   $HOME/.config/coc-settings.json
 printf "***** %s end. *****\n\n" "[neovim] install"
 
 # install Docker
