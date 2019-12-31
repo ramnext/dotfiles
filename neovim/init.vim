@@ -123,6 +123,21 @@ Plug 'tpope/vim-repeat'
 "" https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
 
+"" fugitive vim.
+"" fugitive.vim may very well be the best Git wrapper of all time.
+"" https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-fugitive'
+
+"" vim-gitgutter
+"" A Vim plugin which shows a git diff in the 'gutter' (sign column).
+"" https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'
+
+"" Rooter
+"" Rooter changes the working directory to the project root when you open a file or directory.
+"" https://github.com/airblade/vim-rooter
+Plug 'airblade/vim-rooter'
+
 call plug#end()
 
 " [Colors] Command display left side. default option override.
