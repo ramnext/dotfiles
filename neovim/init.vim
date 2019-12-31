@@ -257,6 +257,7 @@ nmap s <Plug>(easymotion-overwin-f2)
 
 "" editor settings.
 set number           " display line number.
+set relativenumber   " relative number display.
 set termguicolors    " use TrueColor.
 
 "" Tabstops.
