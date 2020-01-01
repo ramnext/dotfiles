@@ -143,6 +143,11 @@ Plug 'airblade/vim-rooter'
 "" https://github.com/andymass/vim-matchup
 Plug 'andymass/vim-matchup'
 
+"" Emmet-vim
+"" emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
+"" https://github.com/mattn/emmet-vim
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 " [Colors] Command display left side. default option override.
