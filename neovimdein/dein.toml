@@ -7,9 +7,9 @@ repo = 'Shougo/dein.vim'
 ## https://github.com/rafi/awesome-vim-colorschemes
 repo = 'dracula/vim'
 hook_add = '''
-  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  au MyAutoCmd VimEnter * nested colorscheme dracula
+    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+    " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
+    au MyAutoCmd VimEnter * nested colorscheme dracula
 '''
 
 [[plugins]]
@@ -17,6 +17,28 @@ hook_add = '''
 ## A light and configurable statusline/tabline plugin for Vim.
 ## https://github.com/itchyny/lightline.vim.
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = {'colorscheme': 'dracula'}
+    let g:lightline.component_expand = {
+        \   'linter_checking': 'lightline#ale#checking',
+        \   'linter_warnings': 'lightline#ale#warnings',
+        \   'linter_errors': 'lightline#ale#errors',
+        \   'linter_ok': 'lightline#ale#ok',
+        \ }
+    let g:lightline.component_type = {
+        \   'linter_checking': 'left',
+        \   'linter_warnings': 'warning',
+        \   'linter_errors': 'error',
+        \   'linter_ok': 'left',
+        \ }
+    let g:lightline.active = {
+        \   'left': [
+        \     ['mode', 'paste'],
+        \     ['readonly', 'filename', 'modified'],
+        \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+        \   ]
+        \ }
+'''
 
 [[plugins]]
 ## lightline ale.
@@ -29,12 +51,22 @@ repo = 'maximbaz/lightline-ale'
 ## Show white space and remove them.
 ## https://github.com/ntpeters/vim-better-whitespace
 repo = 'ntpeters/vim-better-whitespace'
+hook_add = '''
+    "" vim-better-whitespace settings.
+    " Remove trailing white spaces on Save.
+    let g:strip_whitespace_on_save = 0
+    let g:strip_whitespace_confirm = 0  " Not confirm.
+'''
 
 [[plugins]]
 ## vim-indent-guides.
 ## Show indent guide lines.
 ## https://github.com/nathanaelkane/vim-indent-guides
 repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+    "" vim-indent-guides settings.
+    let g:indent_guides_enable_on_vim_startup = 1  " default guides on.
+'''
 
 [[plugins]]
 ## NERDTree.
@@ -42,6 +74,11 @@ repo = 'nathanaelkane/vim-indent-guides'
 ## https://github.com/scrooloose/nerdtree
 repo = 'scrooloose/nerdtree'
 on_cmd = 'NERDTreeToggle'
+hook_add = '''
+    "" nerdtree settings.
+    " keybinding Ctrl-e: NERDTree open/close toggle.
+    nmap <C-e> :NERDTreeToggle<CR>
+'''
 #@ repo = 'justinmk/vim-dirvish'  " light weight file explorer for big project.
 
 [[plugins]]
@@ -50,13 +87,49 @@ on_cmd = 'NERDTreeToggle'
 ## https://github.com/majutsushi/tagbar
 repo = 'majutsushi/tagbar'
 on_cmd = 'TagbarToggle'
+hook_add = '''
+    "" tagbar settings.
+    " keybinding F8: Tag lists open/close toggle.
+    nmap <F8> :TagbarToggle<CR>
+'''
 
 [[plugins]]
 ## Fazy search by fazy finder.
 ## https://github.com/junegunn/fzf
 # PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
 repo = 'junegunn/fzf'
+dir = '~/.fzf'
 build = './install --all'
+hook_add = '''
+    "" fzf settings.
+    command! -bang Colors
+        \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
+    " keybinding C-p: Search past open file lists.
+    nmap <C-p> :History<CR>
+    "@ let g:fzf_layout = { 'down': '~40%' }        " fzf layout position and height. down(default) / up / left / right.
+    let g:fzf_layout = { 'window': '-tabnew' }      " Only neovim, fzf display new window or tab. enew / -tabnew.
+    let g:fzf_buffers_jump = 1                      " [Buffers] Jump to the existing window if possible.
+    let g:fzf_tags_command = 'ctags -R'             " [Tags] Command to generate tags file.
+    let g:fzf_commands_expect = 'alt-enter,ctrl-x'  " [Commands] --expect expression for directly executing the command.
+    " [[B]Commits] Customize the options used by 'git log':
+    let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+    " [Files] Command with preview file.
+    command! -bang -nargs=? -complete=dir Files
+        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+    " [Ag + ?] Command with preview file.
+    command! -bang -nargs=* Ag
+        \ call fzf#vim#ag(<q-args>,
+        \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+        \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+        \                 <bang>0)
+    " [Rg + ?] Command with preview file.
+    command! -bang -nargs=* Rg
+        \ call fzf#vim#grep(
+        \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+        \   <bang>0 ? fzf#vim#with_preview('up:60%')
+        \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+        \   <bang>0)
+'''
   # Both options are optional. You don't have to install fzf in ~/.fzf
   # and you don't have to run the install script if you use fzf only in Vim.
 repo = 'junegunn/fzf.vim'
@@ -66,18 +139,44 @@ repo = 'junegunn/fzf.vim'
 ## A collection of language packs for Vim.
 ## https://github.com/sheerun/vim-polyglot
 repo = 'sheerun/vim-polyglot'
+hook_add = '''
+    "" vim-polyglot settings.
+    "@ let g:polyglot_disabled = ['csv']  " Disable install special formatter setting. Set extension with separate comma(,).
+'''
 
 [[plugins]]
 ## ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+
 ## and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
 ## https://github.com/dense-analysis/ale
 repo = 'dense-analysis/ale'
+hook_add = '''
+    "" ale settings.
+    let g:ale_set_highlights = 0  " Disable warning or error highlighting.
+    let g:ale_linters = {'python': ['flake8']}  " Select linter assosiated with language.
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'  " Show linter messages
+    " Select Formatter assosiated with language.
+    let g:ale_fixers = {
+        \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+        \   'python': ['black'],
+        \ }
+    let g:ale_fix_on_save = 1     " Format on save.
+    " Select previous linter message keybining.
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    " Select next linter message keybinding.
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+'''
 
 [[plugins]]
 ## Ultisnip.
 ## UltiSnips is the ultimate solution for snippets in Vim. It has many features, speed being one of them.
 ## https://github.com/SirVer/ultisnips
 repo = 'SirVer/ultisnips'
+on_i = 1
+hook_add = '''
+    "" ultisnips settings.
+    " Trigger display snippets <Ctrl>-j from <TAB>.
+    let g:UltiSnipsExpandTrigger = '<c-j>'
+'''
 
 [[plugins]]
 ## snipMate & UltiSnip Snippets.
@@ -91,12 +190,53 @@ repo = 'honza/vim-snippets'
 ## https://github.com/neoclide/coc.nvim
 repo = 'neoclide/coc.nvim'
 rev = 'release'
+hook_add = '''
+    "" Conquer of Completion settings.
+    " Select of complementary candidate <TAB> or <Shift>-<TAB> from <Ctrl>-n or <Ctrl>-p.
+    inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+    " Disition of completions replace <CR> form <Ctrl>-y.
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " Define Jump
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+    function! s:show_documentation()
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+    autocmd CursorHold * silent call CocActionAsync('highlight')  " Highlight symbol under cursor on CursorHold
+'''
 
 [[plugins]]
 ## Terminal emulator.
 ## Use the same terminal for everything.
 ## https://github.com/kassio/neoterm
 repo = 'kassio/neoterm'
+hook_add = '''
+    "" neoterm settings.
+    let g:neoterm_default_mod = 'belowright'   " display position.
+    let g:neoterm_size = 10                    " show lines.
+    let g:neoterm_autoscroll = 1               " auto scroll.
+    " Move terminal form editor.
+    tnoremap <silent> <C-w> <C-\><C-n><C-w>
+    " Current line run on REPL.
+    nnoremap <silent> <C-n> :TREPLSendLine<CR>j0
+    " Selected line by visual mode run on REPL.
+    vnoremap <silent> <C-n> V:TREPLSendSelection<CR>'>j0
+'''
 
 [[plugins]]
 ## Vim Commentary.
@@ -109,12 +249,22 @@ repo = 'tpope/vim-commentary'
 ## Visualizes undo history and makes it easier to browse and switch between different undo branches.
 ## https://github.com/mbbill/undotree
 repo = 'mbbill/undotree'
+hook_add = '''
+    "" undotree settings.
+    let g:undotree_WindowLayout = 2
+    " Toggle undo hisotry view.
+    nmap <F5> :UndotreeToggle<CR>
+'''
 
 [[plugins]]
 ## Vim-easymotion.
 ## EasyMotion provides a much simpler way to use some motions in vim.
 ## https://github.com/easymotion/vim-easymotion
 repo = 'easymotion/vim-easymotion'
+hook_add = '''
+    "" vim-easymotion settings.
+    nmap s <Plug>(easymotion-overwin-f2)
+'''
 
 [[plugins]]
 ## Sorround vim.
@@ -163,10 +313,14 @@ repo = 'andymass/vim-matchup'
 ## emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
 ## https://github.com/mattn/emmet-vim
 repo = 'mattn/emmet-vim'
+hook_add = '''
+    "" vim-expand-region settings.
+    vmap v <Plug>(expand_region_expand)
+    vmap <C-v> <Plug>(expand_region_shrink)
+'''
 
 [[plugins]]
 ## vim-expand-region
 ## vim-expand-region is a Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
 ## https://github.com/terryma/vim-expand-region
 repo = 'terryma/vim-expand-region'
-
