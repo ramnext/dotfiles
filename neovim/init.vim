@@ -42,6 +42,11 @@ Plug 'dracula/vim'
 "" https://github.com/itchyny/lightline.vim.
 Plug 'itchyny/lightline.vim'
 
+"" lightline ale.
+"" This plugin provides ALE indicator for the lightline vim plugin.
+"" https://github.com/maximbaz/lightline-ale
+Plug 'maximbaz/lightline-ale'
+
 "" vim-better-whitespace.
 "" Show white space and remove them.
 "" https://github.com/ntpeters/vim-better-whitespace
@@ -174,6 +179,25 @@ colorscheme dracula
 "@ let g:airline_powerline_fonts = 1
 "" lightline settings.
 let g:lightline = {'colorscheme': 'dracula'}
+let g:lightline.component_expand = {
+  \   'linter_checking': 'lightline#ale#checking',
+  \   'linter_warnings': 'lightline#ale#warnings',
+  \   'linter_errors': 'lightline#ale#errors',
+  \   'linter_ok': 'lightline#ale#ok',
+  \ }
+let g:lightline.component_type = {
+  \   'linter_checking': 'left',
+  \   'linter_warnings': 'warning',
+  \   'linter_errors': 'error',
+  \   'linter_ok': 'left',
+  \ }
+let g:lightline.active = {
+  \   'left': [
+  \     ['mode', 'paste'],
+  \     ['readonly', 'filename', 'modified'],
+  \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+  \   ]
+  \ }
 
 "" vim-better-whitespace settings.
 " Remove trailing white spaces on Save.
