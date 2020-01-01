@@ -19,12 +19,13 @@ scriptencoding utf-8
 "    "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 " ":PlugInstall"
 
-" Python paths
+"" Python paths
 " pip3 install --user neovim
 
 call plug#begin('~/.vim/plugged')
 """ Add install plugins between begin and end.
 
+"" Color scheme.
 "" Add color scheme.
 "" https://github.com/rafi/awesome-vim-colorschemes
 Plug 'dracula/vim'
@@ -41,19 +42,23 @@ Plug 'dracula/vim'
 "" https://github.com/itchyny/lightline.vim.
 Plug 'itchyny/lightline.vim'
 
+"" vim-better-whitespace.
 "" Show white space and remove them.
 "" https://github.com/ntpeters/vim-better-whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
+"" vim-indent-guides.
 "" Show indent guide lines.
 "" https://github.com/nathanaelkane/vim-indent-guides
 Plug 'nathanaelkane/vim-indent-guides'
 
+"" NERDTree.
 "" Add file explorer.
 "" https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "@ Plug 'justinmk/vim-dirvish'  " light weight file explorer for big project.
 
+"" tagbar.
 "" Show Tag list by tagbar.
 "" https://github.com/majutsushi/tagbar
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -66,6 +71,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   " and you don't have to run the install script if you use fzf only in Vim.
 Plug 'junegunn/fzf.vim'
 
+"" vim-polyglot.
 "" A collection of language packs for Vim.
 "" https://github.com/sheerun/vim-polyglot
 Plug 'sheerun/vim-polyglot'
@@ -75,6 +81,7 @@ Plug 'sheerun/vim-polyglot'
 "" https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
 
+"" Ultisnip.
 "" UltiSnips is the ultimate solution for snippets in Vim. It has many features, speed being one of them.
 "" https://github.com/SirVer/ultisnips
 Plug 'SirVer/ultisnips'
@@ -114,6 +121,7 @@ Plug 'easymotion/vim-easymotion'
 "" https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 
+"" vim-repeat.
 "" Repeat plugin map.
 "" https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
@@ -155,10 +163,10 @@ Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
-" [Colors] Command display left side. default option override.
+"" [Colors] Command display left side. default option override.
 command! -bang Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
-" Color schemes.
+"" Color schemes.
 colorscheme dracula
 "" vim-airline-themes
 "@ let g:airline#extensions#tabline#enabled = 1
@@ -201,12 +209,12 @@ command! -bang -nargs=* Ag
   \                 <bang>0)
 " [Rg + ?] Command with preview file.
 " !!!Pendding: Rg default Command duplicate.
-"@ command! -bang -nargs=* Rg
-"@   \ call fzf#vim#grep(
-"@   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-"@   \   <bang>0 ? fzf#vim#with_preview('up:60%')
-"@   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-"@   \   <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 "" vim-polyglot settings.
 "@ let g:polyglot_disabled = ['csv']  " Disable install special formatter setting. Set extension with separate comma(,).
