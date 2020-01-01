@@ -1,29 +1,10 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-hook_add = '''
-    " NORMALモードのカーソル移動中に頻繁に切り替わるとうざいのでデフォは無効化しておく(helpは例外)
-    let g:precious_enable_switch_CursorMoved = { '*': 0, 'help': 1 }
-    " INSERTモードのON／OFFに合わせてトグル
-    autocmd MyAutoCmd InsertEnter * :PreciousSwitch
-    autocmd MyAutoCmd InsertLeave * :PreciousReset
-'''
-
-[[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]] # toml syntax
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
+## Color scheme.
+## Add color scheme.
+## https://github.com/rafi/awesome-vim-colorschemes
 repo = 'dracula/vim'
 hook_add = '''
   " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
@@ -32,410 +13,160 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_event = 'TextYankPost'
-on_source = ['denite.nvim']
+## lightline vim.
+## A light and configurable statusline/tabline plugin for Vim.
+## https://github.com/itchyny/lightline.vim.
+repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'Shougo/echodoc.vim'
-on_event = 'CompleteDone'
-hook_source = '''
-let g:echodoc#type = 'virtual'
-call echodoc#enable()
-'''
+## lightline ale.
+## This plugin provides ALE indicator for the lightline vim plugin.
+## https://github.com/maximbaz/lightline-ale
+repo = 'maximbaz/lightline-ale'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = '''
-nnoremap <silent>   [Space]f
-\ :<C-u>Defx -listed -resume -buffer-name=tab`tabpagenr()`<CR>
-'''
-hook_source = '''
-call defx#custom#column('mark', {
-        \ 'readonly_icon': '✗',
-        \ 'selected_icon': '✓',
-        \ })
-call defx#custom#column('icon', {
-        \ 'directory_icon': '▸',
-        \ 'opened_icon': '▾',
-        \ 'root_icon': ' ',
-        \ })
-'''
-[plugins.ftplugin]
-defx = '''
-" Define mappings
-nnoremap <silent><buffer><expr> <CR>
-\ defx#async_action('drop')
-nnoremap <silent><buffer><expr> c
-\ defx#do_action('copy')
-nnoremap <silent><buffer><expr> !
-\ defx#do_action('execute_command')
-nnoremap <silent><buffer><expr> m
-\ defx#do_action('move')
-nnoremap <silent><buffer><expr> p
-\ defx#do_action('paste')
-nnoremap <silent><buffer><expr> l
-\ defx#async_action('open')
-nnoremap <silent><buffer><expr> E
-\ defx#do_action('open', 'vsplit')
-nnoremap <silent><buffer><expr> P
-\ defx#do_action('open', 'pedit')
-nnoremap <silent><buffer><expr> o
-\ defx#async_action('open_or_close_tree')
-nnoremap <silent><buffer><expr> O
-\ defx#async_action('open_tree_recursive')
-nnoremap <silent><buffer><expr> K
-\ defx#do_action('new_directory')
-nnoremap <silent><buffer><expr> N
-\ defx#do_action('new_file')
-nnoremap <silent><buffer><expr> M
-\ defx#do_action('new_multiple_files')
-nnoremap <silent><buffer><expr> C
-\ defx#do_action('toggle_columns', 'mark:filename:type:size:time')
-nnoremap <silent><buffer><expr> S
-\ defx#do_action('toggle_sort', 'Time')
-nnoremap <silent><buffer><expr> se
-\ defx#do_action('add_session')
-nnoremap <silent><buffer><expr> sl
-\ defx#do_action('load_session')
-nnoremap <silent><buffer><expr> d
-\ defx#do_action('remove_trash')
-nnoremap <silent><buffer><expr> r
-\ defx#do_action('rename')
-nnoremap <silent><buffer><expr> x
-\ defx#do_action('execute_system')
-nnoremap <silent><buffer><expr> >
-\ defx#do_action('toggle_ignored_files')
-nnoremap <silent><buffer><expr> .
-\ defx#do_action('repeat')
-nnoremap <silent><buffer><expr> yy
-\ defx#do_action('yank_path')
-nnoremap <silent><buffer><expr> h
-\ defx#async_action('cd', ['..'])
-nnoremap <silent><buffer><expr> ~
-\ defx#async_action('cd')
-nnoremap <silent><buffer><expr> \
-\ defx#do_action('cd', getcwd())
-nnoremap <silent><buffer><expr> q
-\ defx#do_action('quit')
-nnoremap <silent><buffer><expr> <Space>
-\ defx#do_action('toggle_select') . 'j'
-nnoremap <silent><buffer><expr> *
-\ defx#do_action('toggle_select_all')
-nnoremap <silent><buffer><expr> j
-\ line('.') == line('$') ? 'gg' : 'j'
-nnoremap <silent><buffer><expr> k
-\ line('.') == 1 ? 'G' : 'k'
-nnoremap <silent><buffer><expr> <C-l>
-\ defx#do_action('redraw')
-xnoremap <silent><buffer><expr> <CR>
-\ defx#do_action('toggle_select_visual')
-nnoremap <silent><buffer><expr> <C-g>
-\ defx#do_action('print')
-nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
-\ ':<C-u>wincmd w<CR>' :
-\ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
-'''
-zsh = '''
-imap <buffer> <C-c> <Plug>(deol_quit)
-'''
+## vim-better-whitespace.
+## Show white space and remove them.
+## https://github.com/ntpeters/vim-better-whitespace
+repo = 'ntpeters/vim-better-whitespace'
 
 [[plugins]]
-repo= 'Shougo/neosnippet.vim'
-depends= ['neosnippet-snippets', 'context_filetype.vim']
-on_event= 'InsertCharPre'
-on_ft= 'snippet'
-hook_source= '''
- imap <silent>L     <Plug>(neosnippet_jump_or_expand)
- smap <silent>L     <Plug>(neosnippet_jump_or_expand)
- xmap <silent>L     <Plug>(neosnippet_expand_target)
- let g:neosnippet#enable_snipmate_compatibility = 1
- let g:neosnippet#enable_completed_snippet = 1
- " let g:neosnippet#enable_complete_done = 1
- let g:neosnippet#expand_word_boundary = 1
- " let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
- let g:neosnippet#snippets_directory = '~/.vim/snippets'
-'''
+## vim-indent-guides.
+## Show indent guide lines.
+## https://github.com/nathanaelkane/vim-indent-guides
+repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
-repo= 'Shougo/neosnippet-snippets'
+## NERDTree.
+## Add file explorer.
+## https://github.com/scrooloose/nerdtree
+repo = 'scrooloose/nerdtree'
+on_cmd = 'NERDTreeToggle'
+#@ repo = 'justinmk/vim-dirvish'  " light weight file explorer for big project.
 
 [[plugins]]
-repo= 'Shougo/deol.nvim'
-on_source= 'denite.nvim'
-hook_add= '''
- nnoremap <silent> [Space]s :<C-u>Deol zsh -no-start-insert<CR>
- nnoremap <silent> N :<C-u>call deol#new(
- \ {'command': 'zsh', 'start_insert': 0})<CR>
- " nnoremap <silent> [Space]s :<C-u>Deol xonsh<CR>
- nnoremap <silent> [Window]D  :<C-u>call deol#kill_editor()<CR>
-'''
-hook_source= '''
- let g:deol#prompt_pattern = '\w*% '
- let g:deol#shell_history_path = '~/.zsh-history'
- " Set to $PATH.
- let s:bin = dein#get('vim-themis').rtp . '/bin'
- function! s:split_envpath(path) abort
-   let delimiter = has('win32') ? ';' : ':'
-   if stridx(a:path, '\' . delimiter) < 0
-     return split(a:path, delimiter)
-   endif
-   let split = split(a:path, '\\\@<!\%(\\\\\)*\zs' . delimiter)
-   return map(split,'substitute(v:val, ''\\\([\\'
-         \ . delimiter . ']\)'', "\\1", "g")')
- endfunction
- function! s:join_envpath(list, orig_path, add_path) abort
-   let delimiter = has('win32') ? ';' : ':'
-   return (stridx(a:orig_path, '\' . delimiter) < 0
-         \ && stridx(a:add_path, delimiter) < 0) ?
-         \   join(a:list, delimiter) :
-         \   join(map(copy(a:list),
-         \        "substitute(v:path, ',\\|\\\\,\\@=', '\\\\\\0', 'g')"),
-         \        delimiter)
- endfunction
- let $PATH = s:join_envpath(
-       \ dein#util#_uniq(insert(
-       \    s:split_envpath($PATH), s:bin)), $PATH, s:bin)
- let $THEMIS_HOME = dein#get('vim-themis').rtp
- unlet s:bin
-'''
-[plugins.ftplugin]
-deol= '''
-nnoremap<buffer><silent> [Space]gc
-\:<C-u>call deol#send('git commit')<CR>
-nnoremap<buffer><silent> [Space]gA
-\:<C-u>call deol#send('git commit --amend')<CR>
-nmap<buffer> i <Plug>(deol_edit)
-'''
+## tagbar.
+## Show Tag list by tagbar.
+## https://github.com/majutsushi/tagbar
+repo = 'majutsushi/tagbar'
+on_cmd = 'TagbarToggle'
 
 [[plugins]]
-repo= 'Shougo/junkfile.vim'
-on_source= 'denite.nvim'
-hook_add= '''
- nnoremap <silent> [Window]e :<C-u>Denite junkfile:new junkfile<CR>
-'''
+## Fazy search by fazy finder.
+## https://github.com/junegunn/fzf
+# PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
+repo = 'junegunn/fzf'
+build = './install --all'
+  # Both options are optional. You don't have to install fzf in ~/.fzf
+  # and you don't have to run the install script if you use fzf only in Vim.
+repo = 'junegunn/fzf.vim'
 
 [[plugins]]
-repo= 'Shougo/neco-vim'
-on_ft= 'vim'
+## vim-polyglot.
+## A collection of language packs for Vim.
+## https://github.com/sheerun/vim-polyglot
+repo = 'sheerun/vim-polyglot'
 
 [[plugins]]
-repo= 'Shougo/vinarise.vim'
-on_cmd= 'Vinarise'
-hook_add= '''
-let g:vinarise_enable_auto_detect = 1
-let g:vinarise_guifont = 'Courier\ 10\ Pitch:h14'
-'''
+## ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+
+## and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
+## https://github.com/dense-analysis/ale
+repo = 'dense-analysis/ale'
 
 [[plugins]]
-repo= 'kana/vim-niceblock'
-on_map= {x = '<Plug>'}
-hook_add= '''
- xmap I  <Plug>(niceblock-I)
- xmap A  <Plug>(niceblock-A)
-'''
+## Ultisnip.
+## UltiSnips is the ultimate solution for snippets in Vim. It has many features, speed being one of them.
+## https://github.com/SirVer/ultisnips
+repo = 'SirVer/ultisnips'
 
 [[plugins]]
-repo= 'vim-jp/vital.vim'
+## snipMate & UltiSnip Snippets.
+## Use in combination with 'ultisnips'.
+## https://github.com/honza/vim-snippets
+repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo= 'thinca/vim-qfreplace'
-on_ft= ['qf']
-[plugins.ftplugin]
-qf= '''
-nnoremap<buffer> r :<C-u>Qfreplace<CR>
-'''
+## Conquer of Completion
+## Coc is an intellisense engine for Vim/Neovim.
+## https://github.com/neoclide/coc.nvim
+repo = 'neoclide/coc.nvim'
+rev = 'release'
 
 [[plugins]]
-repo= 'thinca/vim-scouter'
+## Terminal emulator.
+## Use the same terminal for everything.
+## https://github.com/kassio/neoterm
+repo = 'kassio/neoterm'
 
 [[plugins]]
-repo= 'tyru/caw.vim'
-on_map= {nx = '<Plug>'}
-hook_add= '''
- function! InitCaw() abort
-   if !&l:modifiable
-     silent! nunmap <buffer> gc
-     silent! xunmap <buffer> gc
-     silent! nunmap <buffer> gcc
-     silent! xunmap <buffer> gcc
-   else
-     nmap <buffer> gc <Plug>(caw:prefix)
-     xmap <buffer> gc <Plug>(caw:prefix)
-     nmap <buffer> gcc <Plug>(caw:hatpos:toggle)
-     xmap <buffer> gcc <Plug>(caw:hatpos:toggle)
-   endif
- endfunction
- autocmd MyAutoCmd FileType * call InitCaw()
- call InitCaw()
-'''
+## Vim Commentary.
+## Comment in/out utility.
+## https://github.com/tpope/vim-commentary
+repo = 'tpope/vim-commentary'
 
 [[plugins]]
-repo= 'tyru/eskk.vim'
-on_map= {ic = '<Plug>'}
-hook_add= '''
- imap <C-j>     <Plug>(eskk:toggle)
- cmap <C-j>     <Plug>(eskk:toggle)
-'''
-hook_source= '''
- let g:eskk#directory = expand('$CACHE/eskk')
- let g:eskk#keep_state = 0
- let g:eskk#debug = 0
- let g:eskk#show_annotation = 1
- let g:eskk#rom_input_style = 'msime'
- let g:eskk#egg_like_newline = 1
- let g:eskk#egg_like_newline_completion = 1
- let g:eskk#tab_select_completion = 1
- let g:eskk#start_completion_length = 2
- let g:eskk#dictionary = {
-       \   'path': expand('$CACHE/skk-jisyo'),
-       \   'sorted': 0,
-       \   'encoding': 'utf-8',
-       \}
- let g:eskk#large_dictionary = {
-       \   'path': '/usr/share/skk/SKK-JISYO.L',
-       \   'sorted': 1,
-       \   'encoding': 'euc-jp',
-       \}
- " if $TERM !~# '^rxvt' && has('nvim')
- "   " Use <> instead of ▽.
- "   let g:eskk#marker_henkan = '<>'
- "   " Use >> instead of ▼.
- "   let g:eskk#marker_henkan_select = '>>'
- " endif
- autocmd MyAutoCmd User eskk-initialize-post
-       \ EskkMap -remap jj <ESC>
- autocmd MyAutoCmd User eskk-initialize-pre call s:eskk_initial_pre()
- function! s:eskk_initial_pre() abort
-   let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
-   call t.add_map('z ', '　')
-   call t.add_map('~', '〜')
-   call t.add_map('zc', '©')
-   call t.add_map('zr', '®')
-   call t.add_map('z9', '（')
-   call t.add_map('z0', '）')
-   call eskk#register_mode_table('hira', t)
- endfunction
-'''
+## Unudo tree
+## Visualizes undo history and makes it easier to browse and switch between different undo branches.
+## https://github.com/mbbill/undotree
+repo = 'mbbill/undotree'
 
 [[plugins]]
-repo= 'tyru/open-browser.vim'
+## Vim-easymotion.
+## EasyMotion provides a much simpler way to use some motions in vim.
+## https://github.com/easymotion/vim-easymotion
+repo = 'easymotion/vim-easymotion'
 
 [[plugins]]
-repo= 'rhysd/accelerated-jk'
-on_map= {n = '<Plug>'}
-hook_add= '''
- nmap <silent>j <Plug>(accelerated_jk_gj)
- nmap <silent>k <Plug>(accelerated_jk_gk)
-'''
+## Sorround vim.
+## Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
+## https://github.com/tpope/vim-surround
+repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo= 'rhysd/vim-operator-surround'
-depends= 'vim-operator-user'
-on_map= {n = '<Plug>'}
-hook_add= '''
- nmap <silent>sa <Plug>(operator-surround-append)a
- nmap <silent>sd <Plug>(operator-surround-delete)a
- nmap <silent>sr <Plug>(operator-surround-replace)a
- nmap <silent>sc <Plug>(operator-surround-replace)a
-'''
+## vim-repeat.
+## Repeat plugin map.
+## https://github.com/tpope/vim-repeat
+repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo= 'kana/vim-operator-replace'
-depends= 'vim-operator-user'
-on_map= {n = '<Plug>'}
-hook_add= '''
- map R <Plug>(operator-replace)
-'''
+## Auto Pairs
+## Insert or delete brackets, parens, quotes in pair.
+## https://github.com/jiangmiao/auto-pairs
+repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
-repo= 'kannokanno/previm'
-on_cmd= 'PrevimOpen'
-depends= 'open-browser.vim'
+## fugitive vim.
+## fugitive.vim may very well be the best Git wrapper of all time.
+## https://github.com/tpope/vim-fugitive
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo= 'osyo-manga/vim-jplus'
-on_map= {n = '<Plug>'}
-hook_add= '''
- nmap J <Plug>(jplus)
-'''
+ ## vim-gitgutter
+## A Vim plugin which shows a git diff in the 'gutter' (sign column).
+## https://github.com/airblade/vim-gitgutter
+repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo= 'kana/vim-smartchr'
-on_event= 'InsertCharPre'
-hook_source= '''
-    inoremap<expr> , smartchr#one_of(', ', ',')
-    inoremap<expr> =
-       \ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\) \%#', 'bcn')? '<bs>= '
-       \ : search('\(*\<bar>!\)\%#', 'bcn') ? '= '
-       \ : smartchr#one_of(' = ', '=', ' == ')
-    augroupMyAutoCmd
-       " Substitute .. into -> .
-       autocmd FileType c,cpp inoremap <buffer> <expr> .
-           \ smartchr#loop('.', '->', '...')
-       autocmd FileType vim inoremap <buffer> <expr> .
-           \ smartchr#loop('.', ' . ', '..', '...')
-       autocmd FileType lisp,scheme,clojure inoremap <buffer> <expr> = =
-    augroup END
-'''
+## Rooter
+## Rooter changes the working directory to the project root when you open a file or directory.
+## https://github.com/airblade/vim-rooter
+repo = 'airblade/vim-rooter'
 
 [[plugins]]
-repo = 'tweekmonster/helpful.vim'
-on_cmd = 'HelpfulVersion'
+## vim match-up
+## match-up is a drop-in replacement for the vim plugin matchit.vim.
+## https://github.com/andymass/vim-matchup
+repo = 'andymass/vim-matchup'
 
 [[plugins]]
-repo = 'rhysd/vim-gfm-syntax'
-on_ft = 'markdown'
+## Emmet-vim
+## emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
+## https://github.com/mattn/emmet-vim
+repo = 'mattn/emmet-vim'
 
 [[plugins]]
-repo = 'machakann/vim-vimhelplint'
-on_ft = 'help'
-[plugins.ftplugin]
-help = '''
-nnoremap <silent><buffer> ,r  :<C-u>VimhelpLint!<CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-'''
-
-[[plugins]]
-repo = 'zchee/deoplete-zsh'
-on_ft = ['zsh', 'sh']
-
-[[plugins]]
-repo = 'lambdalisue/suda.vim'
-on_event = 'BufRead'
-hook_add = '''
-let g:suda_smart_edit = 1
-'''
-
-[[plugins]]
-repo = 'raghur/fruzzy'
-on_source = ['denite.nvim']
-hook_source = 'let g:fruzzy#sortonempty = 0'
-hook_post_update = 'call fruzzy#install()'
-
-[[plugins]]
-repo = 'mattn/vim-goimports'
-on_ft = 'go'
-
-[[plugins]]
-repo = 'ncm2/float-preview.nvim'
-on_source = 'deoplete.nvim'
-if = 'has("nvim")'
-hook_source = '''
-let g:float_preview#docked = 0
-let g:float_preview#max_width = 60
-let g:float_preview#max_height = 20
-'''
-
-[[plugins]]
-repo = 'dag/vim2hs'
-on_ft = 'haskell'
-hook_source = '''
-let g:haskell_conceal = 0
-'''
+## vim-expand-region
+## vim-expand-region is a Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
+## https://github.com/terryma/vim-expand-region
+repo = 'terryma/vim-expand-region'
 
