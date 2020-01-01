@@ -291,6 +291,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+autocmd CursorHold * silent call CocActionAsync('highlight')  " Highlight symbol under cursor on CursorHold
 
 "" neoterm settings.
 let g:neoterm_default_mod = 'belowright'   " display position.
