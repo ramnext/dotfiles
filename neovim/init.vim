@@ -334,6 +334,7 @@ set expandtab        " replace tab to space.
 "" global keymappings.
 let mapleader = "\<Space>"
 set showbreak=↪  " Show line break.
+set hidden " no save tolerate on move buffers.
 
 "" insert mode keymappings.
 imap <C-p> <Up>
