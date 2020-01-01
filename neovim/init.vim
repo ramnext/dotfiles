@@ -148,6 +148,11 @@ Plug 'andymass/vim-matchup'
 "" https://github.com/mattn/emmet-vim
 Plug 'mattn/emmet-vim'
 
+"" vim-expand-region
+"" vim-expand-region is a Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
+"" https://github.com/terryma/vim-expand-region
+Plug 'terryma/vim-expand-region'
+
 call plug#end()
 
 " [Colors] Command display left side. default option override.
@@ -264,6 +269,10 @@ nmap <F5> :UndotreeToggle<CR>  " Toggle undo hisotry view.
 
 "" vim-easymotion settings.
 nmap s <Plug>(easymotion-overwin-f2)
+
+"" vim-expand-region settings.
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 "" editor settings.
 set number           " display line number.
