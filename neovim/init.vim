@@ -138,6 +138,11 @@ Plug 'airblade/vim-gitgutter'
 "" https://github.com/airblade/vim-rooter
 Plug 'airblade/vim-rooter'
 
+"" vim match-up
+"" match-up is a drop-in replacement for the vim plugin matchit.vim.
+"" https://github.com/andymass/vim-matchup
+Plug 'andymass/vim-matchup'
+
 call plug#end()
 
 " [Colors] Command display left side. default option override.
