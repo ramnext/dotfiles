@@ -316,6 +316,10 @@ nmap s <Plug>(easymotion-overwin-f2)
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+"" emmet-vim settings.
+" remap the default <C-Y> leader.
+"@let g:user_emmet_leader_key="<C-y>"
+
 "" editor settings.
 set number           " display line number.
 set relativenumber   " relative number display.
