@@ -276,6 +276,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab        " replace tab to space.
 
+"" global keymappings.
+let mapleader = "\<Space>"
+
 "" insert mode keymappings.
 imap <C-p> <Up>
 imap <C-n> <Down>
