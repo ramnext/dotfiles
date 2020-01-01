@@ -271,6 +271,12 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab        " replace tab to space.
 
+"" insert mode keymappings.
+imap <C-p> <Up>
+imap <C-n> <Down>
+imap <C-h> <Left>
+imap <C-l> <Right>
+
 "" Auto save.
 set updatetime=1000  " poling time for auto commands.
 " Save modified status and not read only file and named buffer.
