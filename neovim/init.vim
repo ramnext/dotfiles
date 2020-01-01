@@ -184,13 +184,16 @@ let g:strip_whitespace_confirm = 0  " Not confirm.
 let g:indent_guides_enable_on_vim_startup = 1  " default guides on.
 
 "" nerdtree settings.
-nmap <C-e> :NERDTreeToggle<CR>  " keybinding Ctrl-e: NERDTree open/close toggle.
+" keybinding Ctrl-e: NERDTree open/close toggle.
+nmap <C-e> :NERDTreeToggle<CR>
 
 "" tagbar settings.
-nmap <F8> :TagbarToggle<CR>     " keybinding F8: Tag lists open/close toggle.
+" keybinding F8: Tag lists open/close toggle.
+nmap <F8> :TagbarToggle<CR>
 
 "" fzf settings.
-nmap <C-p> :History<CR>         " keybinding C-p: Search past open file lists.
+" keybinding C-p: Search past open file lists.
+nmap <C-p> :History<CR>
 "@ let g:fzf_layout = { 'down': '~40%' }      " fzf layout position and height. down(default) / up / left / right.
 let g:fzf_layout = { 'window': '-tabnew' }  " Only neovim, fzf display new window or tab. enew / -tabnew.
 let g:fzf_buffers_jump = 1                  " [Buffers] Jump to the existing window if possible.
@@ -229,8 +232,10 @@ let g:ale_fixers = {
   \   'python': ['black'],
   \ }
 let g:ale_fix_on_save = 1     " Format on save.
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)  " Select previous linter message keybining.
-nmap <silent> <C-j> <Plug>(ale_next_wrap)      " Select next linter message keybinding.
+" Select previous linter message keybining.
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" Select next linter message keybinding.
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 "" ultisnips settings.
 " Trigger display snippets <Ctrl>-j from <TAB>.
@@ -267,13 +272,17 @@ endfunction
 let g:neoterm_default_mod = 'belowright'   " display position.
 let g:neoterm_size = 10                    " show lines.
 let g:neoterm_autoscroll = 1               " auto scroll.
-tnoremap <silent> <C-w> <C-\><C-n><C-w>  " Move terminal form editor.
-nnoremap <silent> <C-n> :TREPLSendLine<CR>j0          " Current line run on REPL.
-vnoremap <silent> <C-n> V:TREPLSendSelection<CR>'>j0  " Selected line by visual mode run on REPL.
+" Move terminal form editor.
+tnoremap <silent> <C-w> <C-\><C-n><C-w>
+" Current line run on REPL.
+nnoremap <silent> <C-n> :TREPLSendLine<CR>j0
+" Selected line by visual mode run on REPL.
+vnoremap <silent> <C-n> V:TREPLSendSelection<CR>'>j0
 
 "" undotree settings.
 let g:undotree_WindowLayout = 2
-nmap <F5> :UndotreeToggle<CR>  " Toggle undo hisotry view.
+" Toggle undo hisotry view.
+nmap <F5> :UndotreeToggle<CR>
 
 "" vim-easymotion settings.
 nmap s <Plug>(easymotion-overwin-f2)
@@ -302,8 +311,10 @@ imap <C-p> <Up>
 imap <C-n> <Down>
 imap <C-h> <Left>
 imap <C-l> <Right>
-inoremap <silent> jj <ESC>   " Escape insert mode keymapping.
-inoremap <silent> っｊ <ESC>  " In lang Japanese, 'っｊ' espace insert mode same bellow.
+" Escape insert mode keymapping.
+inoremap <silent> jj <ESC>
+" In lang Japanese, 'っｊ' espace insert mode same bellow.
+inoremap <silent> っｊ <ESC>
 
 "" Auto save.
 set updatetime=1000  " poling time for auto commands.
