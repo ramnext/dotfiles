@@ -36,7 +36,7 @@ pip3 install -U --user \
 	flake8 \
 	jedi \
 	black \
-	neovim
+	pynvim
 printf "***** %s end. *****\n\n" "[python tools] install"
 
 # install fzf
@@ -139,6 +139,8 @@ else
     echo "neovim config is already exists!!"
 fi
 ln -sfv $HOME/dotfiles/neovim/init.vim $HOME/.config/nvim/init.vim
+#@ ln -sfv $HOME/dotfiles/neovimdein/init.vim $HOME/.config/nvim/init.vim
+ln -sfv $HOME/dotfiles/neovimdein/dein.toml $HOME/.config/nvim/dein.toml
 ln -sfv $HOME/dotfiles/neovim/coc-settings.json   $HOME/.config/coc-settings.json
 printf "***** %s end. *****\n\n" "[neovim] install"
 
