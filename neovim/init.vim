@@ -294,6 +294,8 @@ imap <C-p> <Up>
 imap <C-n> <Down>
 imap <C-h> <Left>
 imap <C-l> <Right>
+inoremap <silent> jj <ESC>   " Escape insert mode keymapping.
+inoremap <silent> っｊ <ESC>  " In lang Japanese, 'っｊ' espace insert mode same bellow.
 
 "" Auto save.
 set updatetime=1000  " poling time for auto commands.
