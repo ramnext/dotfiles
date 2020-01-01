@@ -346,6 +346,11 @@ inoremap <silent> jj <ESC>
 " In lang Japanese, 'っｊ' espace insert mode same bellow.
 inoremap <silent> っｊ <ESC>
 
+"" normal mode keymappings.
+nnoremap <silent><F3> :bprevious<CR>
+nnoremap <silent><F4> :bnext<CR>
+nnoremap <silent><F9> :bdelete<CR>
+
 "" Auto save.
 set updatetime=1000  " poling time for auto commands.
 " Save modified status and not read only file and named buffer.
