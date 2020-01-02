@@ -89,14 +89,11 @@ hook_source = '''
     nmap <F8> :TagbarToggle<CR>
 '''
 
+# Both options are optional. You don't have to install fzf in ~/.fzf
+# and you don't have to run the install script if you use fzf only in Vim.
 [[plugins]]
-## Fazy search by fazy finder.
-## https://github.com/junegunn/fzf
-# PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
-repo = 'junegunn/fzf'
-dir = '~/.fzf'
-build = './install --all'
-merged = 0
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
 hook_add = '''
     "" fzf settings.
     command! -bang Colors
@@ -127,12 +124,6 @@ hook_add = '''
         \           : fzf#vim#with_preview('right:50%:hidden', '?'),
         \   <bang>0)
 '''
-
-# Both options are optional. You don't have to install fzf in ~/.fzf
-# and you don't have to run the install script if you use fzf only in Vim.
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-depends = 'fzf'
 
 [[plugins]]
 ## vim-polyglot.

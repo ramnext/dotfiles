@@ -3,11 +3,12 @@ if &compatible
 endif
 "" runtimepath
 set runtimepath+=~/.vim
+set runtimepath+=~/.fzf
 
 "" reset augroup
-augroup MyAutoCmd
-  autocmd!
-augroup END
+" augroup MyAutoCmd
+"   autocmd!
+" augroup END
 
 "" dein plugins manager settings.
 " Required:
