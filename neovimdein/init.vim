@@ -41,6 +41,8 @@ if dein#check_install()
     call dein#install()
 endif
 
+"" Color scheme.
+colorscheme dracula
 
 "" editor settings.
 set number           " display line number.
