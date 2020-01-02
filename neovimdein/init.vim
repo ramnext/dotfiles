@@ -1,14 +1,16 @@
 if &compatible
     set nocompatible   " Be iMproved
 endif
+"" runtimepath
+set runtimepath+=~/.vim
 
 "" reset augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
 
+"" dein plugins manager settings.
 " Required:
-" dein plugins manager settings.
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -44,8 +46,11 @@ endif
 set number           " display line number.
 set relativenumber   " relative number display.
 set termguicolors    " use TrueColor.
+set showbreak=↪  " Show line break.
+set hidden " no save tolerate on move buffers.
+set updatetime=1000  " poling time for auto commands.
 
-"" Tabstops.
+" Tabstops.
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -53,8 +58,6 @@ set expandtab        " replace tab to space.
 
 "" global keymappings.
 let mapleader = "\<Space>"
-set showbreak=↪  " Show line break.
-set hidden " no save tolerate on move buffers.
 
 "" insert mode keymappings.
 imap <C-p> <Up>
@@ -71,12 +74,12 @@ nnoremap <silent><F3> :bprevious<CR>
 nnoremap <silent><F4> :bnext<CR>
 nnoremap <silent><F9> :bdelete<CR>
 
-"" Auto save.
-set updatetime=1000  " poling time for auto commands.
-" Save modified status and not read only file and named buffer.
+"" functions.
+" Auto save. Save modified status and not read only file and named buffer.
 function s:AutoWriteIfPossible()
     if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
         write
     endif
 endfunction
 autocmd CursorHold * call s:AutoWriteIfPossible()  " Call auto save function.
+
