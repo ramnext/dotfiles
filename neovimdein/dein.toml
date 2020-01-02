@@ -1,3 +1,9 @@
+###
+### Notice:
+### - function define necessary in hook_add.
+### - global variables define in hook_add.
+### - keymappings define in hook_add.
+###
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -13,7 +19,7 @@ repo = 'dracula/vim'
 ## A light and configurable statusline/tabline plugin for Vim.
 ## https://github.com/itchyny/lightline.vim.
 repo = 'itchyny/lightline.vim'
-hook_source = '''
+hook_add= '''
     let g:lightline = {'colorscheme': 'dracula'}
     let g:lightline.component_expand = {
         \   'linter_checking': 'lightline#ale#checking',
@@ -47,7 +53,7 @@ repo = 'maximbaz/lightline-ale'
 ## Show white space and remove them.
 ## https://github.com/ntpeters/vim-better-whitespace
 repo = 'ntpeters/vim-better-whitespace'
-hook_source = '''
+hook_add= '''
     "" vim-better-whitespace settings.
     " Remove trailing white spaces on Save.
     let g:strip_whitespace_on_save = 0
@@ -59,7 +65,7 @@ hook_source = '''
 ## Show indent guide lines.
 ## https://github.com/nathanaelkane/vim-indent-guides
 repo = 'nathanaelkane/vim-indent-guides'
-hook_source = '''
+hook_add = '''
     "" vim-indent-guides settings.
     let g:indent_guides_enable_on_vim_startup = 1  " default guides on.
 '''
@@ -70,7 +76,7 @@ hook_source = '''
 ## https://github.com/scrooloose/nerdtree
 repo = 'scrooloose/nerdtree'
 on_cmd = 'NERDTreeToggle'
-hook_source = '''
+hook_add = '''
     "" nerdtree settings.
     " keybinding Ctrl-e: NERDTree open/close toggle.
     nmap <C-e> :NERDTreeToggle<CR>
@@ -83,7 +89,7 @@ hook_source = '''
 ## https://github.com/majutsushi/tagbar
 repo = 'majutsushi/tagbar'
 on_cmd = 'TagbarToggle'
-hook_source = '''
+hook_add = '''
     "" tagbar settings.
     " keybinding F8: Tag lists open/close toggle.
     nmap <F8> :TagbarToggle<CR>
@@ -94,12 +100,9 @@ hook_source = '''
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
+on_cmd = [ 'FZF' ]
 hook_add = '''
     "" fzf settings.
-    command! -bang Colors
-        \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
-    " keybinding C-p: Search past open file lists.
-    nmap <C-p> :History<CR>
     "@ let g:fzf_layout = { 'down': '~40%' }        " fzf layout position and height. down(default) / up / left / right.
     let g:fzf_layout = { 'window': '-tabnew' }      " Only neovim, fzf display new window or tab. enew / -tabnew.
     let g:fzf_buffers_jump = 1                      " [Buffers] Jump to the existing window if possible.
@@ -107,6 +110,9 @@ hook_add = '''
     let g:fzf_commands_expect = 'alt-enter,ctrl-x'  " [Commands] --expect expression for directly executing the command.
     " [[B]Commits] Customize the options used by 'git log':
     let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+    " commands.
+    command! -bang Colors
+        \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
     " [Files] Command with preview file.
     command! -bang -nargs=? -complete=dir Files
         \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -123,6 +129,8 @@ hook_add = '''
         \   <bang>0 ? fzf#vim#with_preview('up:60%')
         \           : fzf#vim#with_preview('right:50%:hidden', '?'),
         \   <bang>0)
+    " keybinding C-p: Search past open file lists.
+    nmap <C-p> :History<CR>
 '''
 
 [[plugins]]
@@ -140,7 +148,8 @@ hook_add = '''
 ## and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
 ## https://github.com/dense-analysis/ale
 repo = 'dense-analysis/ale'
-hook_source = '''
+on_ft = [ 'python' ]
+hook_add = '''
     "" ale settings.
     let g:ale_set_highlights = 0  " Disable warning or error highlighting.
     let g:ale_linters = {'python': ['flake8']}  " Select linter assosiated with language.
@@ -163,7 +172,7 @@ hook_source = '''
 ## https://github.com/SirVer/ultisnips
 repo = 'SirVer/ultisnips'
 on_i = 1
-hook_source = '''
+hook_add = '''
     "" ultisnips settings.
     " Trigger display snippets <Ctrl>-j from <TAB>.
     let g:UltiSnipsExpandTrigger = '<c-j>'
@@ -181,26 +190,26 @@ repo = 'honza/vim-snippets'
 ## https://github.com/neoclide/coc.nvim
 repo = 'neoclide/coc.nvim'
 rev = 'release'
-hook_source = '''
+hook_add = '''
     "" Conquer of Completion settings.
-    " Select of complementary candidate <TAB> or <Shift>-<TAB> from <Ctrl>-n or <Ctrl>-p.
-    inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-    function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
-    " Disition of completions replace <CR> form <Ctrl>-y.
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
     " Define Jump
     nmap <silent> gd <Plug>(coc-definition)
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
     nnoremap <silent> K :call <SID>show_documentation()<CR>
+    " Select of complementary candidate <TAB> or <Shift>-<TAB> from <Ctrl>-n or <Ctrl>-p.
+    inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " Disition of completions replace <CR> form <Ctrl>-y.
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
     function! s:show_documentation()
         if (index(['vim','help'], &filetype) >= 0)
             execute 'h '.expand('<cword>')
@@ -216,6 +225,7 @@ hook_source = '''
 ## Use the same terminal for everything.
 ## https://github.com/kassio/neoterm
 repo = 'kassio/neoterm'
+on_cmd = [ ':TREPLSendLine', ':TREPLSendSelection' ]
 hook_add = '''
     "" neoterm settings.
     let g:neoterm_default_mod = 'belowright'   " display position.
@@ -293,6 +303,7 @@ repo = 'airblade/vim-gitgutter'
 ## Rooter changes the working directory to the project root when you open a file or directory.
 ## https://github.com/airblade/vim-rooter
 repo = 'airblade/vim-rooter'
+on_cmd = [ 'Rooter' ]
 
 [[plugins]]
 ## vim match-up
@@ -305,7 +316,7 @@ repo = 'andymass/vim-matchup'
 ## emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
 ## https://github.com/mattn/emmet-vim
 repo = 'mattn/emmet-vim'
-on_ft = [ 'html' ]
+on_ft = [ 'html', 'css' ]
 
 [[plugins]]
 ## vim-expand-region
