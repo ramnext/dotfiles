@@ -146,3 +146,6 @@ alias gcd='ghq look (ghq list |fzf --preview "bat --color=always --style=header,
 
 ## for lazydocker
 alias lzd="lazydocker"
+
+## for neovim
+alias vi='nvim'
