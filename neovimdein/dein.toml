@@ -225,7 +225,7 @@ hook_add = '''
 ## Use the same terminal for everything.
 ## https://github.com/kassio/neoterm
 repo = 'kassio/neoterm'
-on_cmd = [ ':TREPLSendLine', ':TREPLSendSelection' ]
+on_ft = [ 'python' ]
 hook_add = '''
     "" neoterm settings.
     let g:neoterm_default_mod = 'belowright'   " display position.
