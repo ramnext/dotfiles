@@ -5,20 +5,15 @@ repo = 'Shougo/dein.vim'
 ## Color scheme.
 ## Add color scheme.
 ## https://github.com/rafi/awesome-vim-colorschemes
+# !!! Notice: define your colorscheme name under dein#end() in init.vim.
 repo = 'dracula/vim'
-hook_add = '''
-    " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-    " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-    au MyAutoCmd VimEnter * nested colorscheme dracula
-'''
 
 [[plugins]]
 ## lightline vim.
 ## A light and configurable statusline/tabline plugin for Vim.
 ## https://github.com/itchyny/lightline.vim.
 repo = 'itchyny/lightline.vim'
-lazy = 1
-hook_add = '''
+hook_source = '''
     let g:lightline = {'colorscheme': 'dracula'}
     let g:lightline.component_expand = {
         \   'linter_checking': 'lightline#ale#checking',
@@ -46,15 +41,13 @@ hook_add = '''
 ## This plugin provides ALE indicator for the lightline vim plugin.
 ## https://github.com/maximbaz/lightline-ale
 repo = 'maximbaz/lightline-ale'
-lazy = 1
 
 [[plugins]]
 ## vim-better-whitespace.
 ## Show white space and remove them.
 ## https://github.com/ntpeters/vim-better-whitespace
 repo = 'ntpeters/vim-better-whitespace'
-lazy = 1
-hook_add = '''
+hook_source = '''
     "" vim-better-whitespace settings.
     " Remove trailing white spaces on Save.
     let g:strip_whitespace_on_save = 0
@@ -66,8 +59,7 @@ hook_add = '''
 ## Show indent guide lines.
 ## https://github.com/nathanaelkane/vim-indent-guides
 repo = 'nathanaelkane/vim-indent-guides'
-lazy = 1
-hook_add = '''
+hook_source = '''
     "" vim-indent-guides settings.
     let g:indent_guides_enable_on_vim_startup = 1  " default guides on.
 '''
@@ -78,7 +70,7 @@ hook_add = '''
 ## https://github.com/scrooloose/nerdtree
 repo = 'scrooloose/nerdtree'
 on_cmd = 'NERDTreeToggle'
-hook_add = '''
+hook_source = '''
     "" nerdtree settings.
     " keybinding Ctrl-e: NERDTree open/close toggle.
     nmap <C-e> :NERDTreeToggle<CR>
@@ -91,7 +83,7 @@ hook_add = '''
 ## https://github.com/majutsushi/tagbar
 repo = 'majutsushi/tagbar'
 on_cmd = 'TagbarToggle'
-hook_add = '''
+hook_source = '''
     "" tagbar settings.
     " keybinding F8: Tag lists open/close toggle.
     nmap <F8> :TagbarToggle<CR>
@@ -105,7 +97,6 @@ repo = 'junegunn/fzf'
 dir = '~/.fzf'
 build = './install --all'
 merged = 0
-lazy = 1
 hook_add = '''
     "" fzf settings.
     command! -bang Colors
@@ -142,7 +133,6 @@ hook_add = '''
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
-lazy = 1
 
 [[plugins]]
 ## vim-polyglot.
@@ -159,7 +149,6 @@ hook_add = '''
 ## and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
 ## https://github.com/dense-analysis/ale
 repo = 'dense-analysis/ale'
-lazy = 1
 hook_source = '''
     "" ale settings.
     let g:ale_set_highlights = 0  " Disable warning or error highlighting.
@@ -183,7 +172,7 @@ hook_source = '''
 ## https://github.com/SirVer/ultisnips
 repo = 'SirVer/ultisnips'
 on_i = 1
-hook_add = '''
+hook_source = '''
     "" ultisnips settings.
     " Trigger display snippets <Ctrl>-j from <TAB>.
     let g:UltiSnipsExpandTrigger = '<c-j>'
@@ -201,9 +190,7 @@ repo = 'honza/vim-snippets'
 ## https://github.com/neoclide/coc.nvim
 repo = 'neoclide/coc.nvim'
 rev = 'release'
-lazy = 1
-on_i = 1
-hook_add = '''
+hook_source = '''
     "" Conquer of Completion settings.
     " Select of complementary candidate <TAB> or <Shift>-<TAB> from <Ctrl>-n or <Ctrl>-p.
     inoremap <silent><expr> <TAB>
@@ -238,7 +225,6 @@ hook_add = '''
 ## Use the same terminal for everything.
 ## https://github.com/kassio/neoterm
 repo = 'kassio/neoterm'
-lazy = 1
 hook_add = '''
     "" neoterm settings.
     let g:neoterm_default_mod = 'belowright'   " display position.
@@ -257,14 +243,12 @@ hook_add = '''
 ## Comment in/out utility.
 ## https://github.com/tpope/vim-commentary
 repo = 'tpope/vim-commentary'
-lazy = 1
 
 [[plugins]]
 ## Unudo tree
 ## Visualizes undo history and makes it easier to browse and switch between different undo branches.
 ## https://github.com/mbbill/undotree
 repo = 'mbbill/undotree'
-lazy = 1
 on_cmd = ':UndotreeToggle'
 hook_add = '''
     "" undotree settings.
@@ -278,7 +262,6 @@ hook_add = '''
 ## EasyMotion provides a much simpler way to use some motions in vim.
 ## https://github.com/easymotion/vim-easymotion
 repo = 'easymotion/vim-easymotion'
-lazy = 1
 hook_add = '''
     "" vim-easymotion settings.
     nmap s <Plug>(easymotion-overwin-f2)
@@ -289,49 +272,42 @@ hook_add = '''
 ## Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
 ## https://github.com/tpope/vim-surround
 repo = 'tpope/vim-surround'
-lazy = 1
 
 [[plugins]]
 ## vim-repeat.
 ## Repeat plugin map.
 ## https://github.com/tpope/vim-repeat
 repo = 'tpope/vim-repeat'
-lazy = 1
 
 [[plugins]]
 ## Auto Pairs
 ## Insert or delete brackets, parens, quotes in pair.
 ## https://github.com/jiangmiao/auto-pairs
 repo = 'jiangmiao/auto-pairs'
-lazy = 1
 
 [[plugins]]
 ## fugitive vim.
 ## fugitive.vim may very well be the best Git wrapper of all time.
 ## https://github.com/tpope/vim-fugitive
 repo = 'tpope/vim-fugitive'
-lazy = 1
 
 [[plugins]]
  ## vim-gitgutter
 ## A Vim plugin which shows a git diff in the 'gutter' (sign column).
 ## https://github.com/airblade/vim-gitgutter
 repo = 'airblade/vim-gitgutter'
-lazy = 1
 
 [[plugins]]
 ## Rooter
 ## Rooter changes the working directory to the project root when you open a file or directory.
 ## https://github.com/airblade/vim-rooter
 repo = 'airblade/vim-rooter'
-lazy = 1
 
 [[plugins]]
 ## vim match-up
 ## match-up is a drop-in replacement for the vim plugin matchit.vim.
 ## https://github.com/andymass/vim-matchup
 repo = 'andymass/vim-matchup'
-lazy = 1
 
 [[plugins]]
 ## Emmet-vim
@@ -345,7 +321,6 @@ on_ft = [ 'html' ]
 ## vim-expand-region is a Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
 ## https://github.com/terryma/vim-expand-region
 repo = 'terryma/vim-expand-region'
-lazy = 1
 hook_add = '''
     "" vim-expand-region settings.
     vmap v <Plug>(expand_region_expand)
