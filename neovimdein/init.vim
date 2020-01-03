@@ -48,19 +48,27 @@ endif
 colorscheme dracula
 
 "" editor settings.
-set number           " display line number.
-set relativenumber   " relative number display.
-set termguicolors    " use TrueColor.
-set showbreak=↪  " Show line break.
-set hidden " no save tolerate on move buffers.
-set updatetime=1000  " poling time for auto commands.
+set number           " Display line number.
+set relativenumber   " Relative number display.
+set termguicolors    " Use TrueColor.
+set showbreak=↪      " Show line break.
+set hidden           " no save tolerate on move buffers.
+set updatetime=1000  " Poling time for auto commands.
 set clipboard+=unnamedplus  " clipboard support.
+
+" Search options.
+set ignorecase       " Ignore charactor small/large.
+set smartcase        " When include large charactor, not ignore case.
+set wrapscan         " Enable loop search.
+set incsearch        " Enable incremental search.
+set inccommand=split " Show intaractive replacement view."
 
 " Tabstops.
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab        " replace tab to space.
+set expandtab        " Replace tab to space.
+set shiftround       " Insert white space on multiple of the value of 'shiftwidth'.
 
 "" global keymappings.
 let mapleader = "\<Space>"
@@ -76,6 +84,12 @@ inoremap <silent> jj <ESC>
 inoremap <silent> っｊ <ESC>
 
 "" normal mode keymappings.
+" Wrap lien up/down in normal mode.
+nnoremap k gk
+nnoremap j gj
+" Wrap lien up/down in visual mode.
+vnoremap k gk
+vnoremap j gj
 nnoremap <silent><F3> :bprevious<CR>
 nnoremap <silent><F4> :bnext<CR>
 nnoremap <silent><F9> :bdelete<CR>
