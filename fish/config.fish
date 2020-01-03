@@ -105,8 +105,8 @@ case Linux
 
     ## python setting
     ##
-    alias python3="python3.8"
-    alias python3-venv="python3.8-venv"
+    alias python3="python3.7"
+    alias python3-venv="python3.7-venv"
 case '*'
 end
 
