@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+!/usr/bin/bash
 
 sudo -E apt install -y ca-certificates
 sudo -E apt update
@@ -91,13 +91,26 @@ printf "***** %s end. *****\n\n" "[fish shell tools] install"
 
 # install golang tools
 #
+export GOPATH=$HOME/go
+# ghq that github repository manager.
 (type ghq) > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "ghq is already exists!!"
 else
-    go get github.com/motemen/ghq
+    go get -d github.com/motemen/ghq
+    cd $GOPATH/src/github.com/motemen/ghq
+    make install
 fi
-printf "***** %s end. *****\n\n" "[golang] install"
+# lemonade that remote clipboard sharing application.
+(type lemonade) > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "lemonade is already exists!!"
+else
+    go get -d github.com/lemonade-command/lemonade
+    cd $GOPATH/src/github.com/lemonade-command/lemonade/
+    make install
+fi
+printf "***** %s end. *****\n\n" "[golang tools] install"
 
 # anyenv settings.
 #
