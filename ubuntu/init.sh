@@ -102,6 +102,7 @@ else
     make install
 fi
 # lemonade that remote clipboard sharing application.
+# https://github.com/lemonade-command/lemonade
 (type lemonade) > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "lemonade is already exists!!"
