@@ -186,13 +186,19 @@ hook_add = '''
 ## Ultisnip.
 ## UltiSnips is the ultimate solution for snippets in Vim. It has many features, speed being one of them.
 ## https://github.com/SirVer/ultisnips
+## !!! Notice: not working in Ubuntu. you use neosnippets.
 repo = 'SirVer/ultisnips'
+depends = [ 'vim-snippets' ]
 merge = 0
 on_i = 1
 hook_add = '''
     "" ultisnips settings.
     " Trigger display snippets <Ctrl>-j from <TAB>.
     let g:UltiSnipsExpandTrigger = '<c-j>'
+    command! -bang -nargs=+ -complete=dir SnippetsDefault
+        \ call fzf#vim#ag_raw(<q-args> . ' ~/.cache/dein/repos/github.com/honza/vim-snippets/snippets/',
+        \ fzf#vim#with_preview(), <bang>0)
+    :command Snip SnippetsDefault snippet <CR>
 '''
 
 [[plugins]]
