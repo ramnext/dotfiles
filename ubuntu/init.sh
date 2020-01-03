@@ -19,6 +19,7 @@ sudo -E apt install -y \
     tmux \
     tig \
     golang-go \
+    python3-dev \
     python3.8 \
     python3.8-venv \
     fish
