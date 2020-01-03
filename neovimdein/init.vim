@@ -94,7 +94,7 @@ vnoremap j gj
 nnoremap <silent><F3> :bprevious<CR>
 nnoremap <silent><F4> :bnext<CR>
 nnoremap <silent><F9> :bdelete<CR>
-" Rplace close command all from one.
+" if you need many files open onece. rplace close command all from one.
 nnoremap :q :qa
 
 "" functions.
