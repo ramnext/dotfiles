@@ -99,7 +99,7 @@ hook_add = '''
 # and you don't have to run the install script if you use fzf only in Vim.
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-depends = 'fzf'
+#@marks depends = 'fzf'
 on_cmd = [ 'FZF' ]
 hook_add = '''
     "" fzf settings.
@@ -171,6 +171,7 @@ hook_add = '''
 ## UltiSnips is the ultimate solution for snippets in Vim. It has many features, speed being one of them.
 ## https://github.com/SirVer/ultisnips
 repo = 'SirVer/ultisnips'
+merge = 0
 on_i = 1
 hook_add = '''
     "" ultisnips settings.
@@ -183,6 +184,7 @@ hook_add = '''
 ## Use in combination with 'ultisnips'.
 ## https://github.com/honza/vim-snippets
 repo = 'honza/vim-snippets'
+on_i = 1
 
 [[plugins]]
 ## Conquer of Completion
