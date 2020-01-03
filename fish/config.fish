@@ -10,6 +10,9 @@ end
 ###
 status is-login; and set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -gx LD_LIBRARY_PATH "/usr/local/lib"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -gx XDG_DATA_HOME "$HOME/.local/share"
 
 ## bobthefish settings
 ##
