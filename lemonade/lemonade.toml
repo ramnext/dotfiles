@@ -1,3 +1,12 @@
+# Secure TCP Connection.
+# Lemonade doesn't provide encryption and authorization. However we can use SSH Port forwarding for the purpose.
+#
+# $ lemonade server -allow 127.0.0.1 &
+# $ ssh -R 2489:127.0.0.1:2489 user@host
+#
+# See bellow.
+# https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding
+
 port = 2489
 host = '192.168.11.8'
 #@server trans-loopback = true
