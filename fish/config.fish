@@ -41,6 +41,11 @@ set -x FZF_TMUX_HEIGHT '80%'
 ##
 set -gx VTE_CJK_WIDTH 1
 
+## go tools setting
+##
+set -x GOPATH $HOME/go
+status is-login; and set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
+
 ## rust setting
 ##
 status is-login; and set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
@@ -98,11 +103,6 @@ case Darwin
     alias safari="open -a Safari"
     alias firefox="open -a Firefox"
 case Linux
-    ## go tools setting
-    ##
-    set -x -U GOPATH $HOME/go
-    status is-login; and set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
-
     ## python setting
     ##
     alias python3="python3.8"
