@@ -90,9 +90,12 @@ nnoremap j gj
 " Wrap lien up/down in visual mode.
 vnoremap k gk
 vnoremap j gj
+" Buffers move keymappings.
 nnoremap <silent><F3> :bprevious<CR>
 nnoremap <silent><F4> :bnext<CR>
 nnoremap <silent><F9> :bdelete<CR>
+" Rplace close command all from one.
+nnoremap :q :qa
 
 "" functions.
 " Auto save. Save modified status and not read only file and named buffer.
