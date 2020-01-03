@@ -13,6 +13,8 @@ set runtimepath+=~/.fzf
 "" dein plugins manager settings.
 " Required:
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let $CONFIG = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
+let $DATA = empty($XDG_DATA_HOME) ? expand('$HOME/.local/share') : $XDG_DATA_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
@@ -85,4 +87,3 @@ function s:AutoWriteIfPossible()
     endif
 endfunction
 autocmd CursorHold * call s:AutoWriteIfPossible()  " Call auto save function.
-
