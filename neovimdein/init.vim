@@ -54,6 +54,7 @@ set termguicolors    " use TrueColor.
 set showbreak=↪  " Show line break.
 set hidden " no save tolerate on move buffers.
 set updatetime=1000  " poling time for auto commands.
+set clipboard+=unnamedplus  " clipboard support.
 
 " Tabstops.
 set tabstop=4
