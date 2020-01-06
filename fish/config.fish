@@ -165,7 +165,7 @@ alias ld="exa -lgFa --only-dirs --icons"
 
 ## for ghq
 # preview README file that ghq repositories
-alias gcd='ghq look (ghq list |fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README.*")'
+alias gcd='ghq get -look (ghq list |fzf --preview "bat --color=always --style=header,grid --line-range :80 \$(ghq root)/{}/README.*")'
 
 ## for lazydocker
 alias lzd="lazydocker"
