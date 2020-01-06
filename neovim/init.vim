@@ -321,20 +321,30 @@ vmap <C-v> <Plug>(expand_region_shrink)
 "@let g:user_emmet_leader_key="<C-y>"
 
 "" editor settings.
-set number           " display line number.
-set relativenumber   " relative number display.
-set termguicolors    " use TrueColor.
+set number           " Display line number.
+set relativenumber   " Relative number display.
+set termguicolors    " Use TrueColor.
+set showbreak=↪      " Show line break.
+set hidden           " no save tolerate on move buffers.
+set updatetime=1000  " Poling time for auto commands.
+set clipboard+=unnamedplus  " clipboard support.
 
-"" Tabstops.
+" Search options.
+set ignorecase       " Ignore charactor small/large.
+set smartcase        " When include large charactor, not ignore case.
+set wrapscan         " Enable loop search.
+set incsearch        " Enable incremental search.
+set inccommand=split " Show intaractive replacement view."
+
+" Tabstops.
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab        " replace tab to space.
+set expandtab        " Replace tab to space.
+set shiftround       " Insert white space on multiple of the value of 'shiftwidth'.
 
 "" global keymappings.
 let mapleader = "\<Space>"
-set showbreak=↪  " Show line break.
-set hidden " no save tolerate on move buffers.
 
 "" insert mode keymappings.
 imap <C-p> <Up>
@@ -347,13 +357,21 @@ inoremap <silent> jj <ESC>
 inoremap <silent> っｊ <ESC>
 
 "" normal mode keymappings.
+" Wrap lien up/down in normal mode.
+nnoremap k gk
+nnoremap j gj
+" Wrap lien up/down in visual mode.
+vnoremap k gk
+vnoremap j gj
+" Buffers move keymappings.
 nnoremap <silent><F3> :bprevious<CR>
 nnoremap <silent><F4> :bnext<CR>
 nnoremap <silent><F9> :bdelete<CR>
+" if you need many files open onece. rplace close command all from one.
+nnoremap :q :qa
 
-"" Auto save.
-set updatetime=1000  " poling time for auto commands.
-" Save modified status and not read only file and named buffer.
+"" functions.
+" Auto save. Save modified status and not read only file and named buffer.
 function s:AutoWriteIfPossible()
     if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
         write
