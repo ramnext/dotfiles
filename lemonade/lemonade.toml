@@ -11,4 +11,4 @@ port = 2489
 host = '192.168.11.8'
 #@server trans-loopback = true
 #@server trans-localfile = true
-#@windows #@windows line-ending = 'crlf'
+#@windows line-ending = 'crlf'
