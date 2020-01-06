@@ -78,12 +78,14 @@ status --is-interactive; and source (anyenv init - fish|psub)
 # <<< conda initialize <<<
 
 ## ssh-agent settings.
+# Install edc/bass fisher plugin before reading bash script files.
+# https://github.com/edc/bass
 set -gx SSH_KEY_LIFE_TIME_SEC 86400          # Effect times.
 set -gx SSH_AGENT_FILE $HOME/.ssh-agent
-test -f $SSH_AGENT_FILE and source $SSH_AGENT_FILE > /dev/null 2>&1
+test -f $SSH_AGENT_FILE and bass source $SSH_AGENT_FILE > /dev/null 2>&1
 if [ ( pgrep -lf ssh-agent | wc -l ) -eq 0 ]
     ssh-agent -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
-    source $SSH_AGENT_FILE > /dev/null 2>&1
+    bass source $SSH_AGENT_FILE > /dev/null 2>&1
 end
 
 ###
