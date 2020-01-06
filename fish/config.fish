@@ -76,6 +76,15 @@ status --is-interactive; and source (anyenv init - fish|psub)
 #@eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+## ssh-agent settings.
+set -gx SSH_KEY_LIFE_TIME_SEC 86400          # Effect times.
+set -gx SSH_AGENT_FILE $HOME/.ssh-agent
+test -f $SSH_AGENT_FILE and source $SSH_AGENT_FILE > /dev/null 2>&1
+if [ ( pgrep -lf ssh-agent | wc -l ) -eq 0 ]
+    ssh-agent -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
+    source $SSH_AGENT_FILE > /dev/null 2>&1
+end
+
 ###
 ### setting by OS
 ###
