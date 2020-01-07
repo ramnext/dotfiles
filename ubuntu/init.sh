@@ -14,6 +14,7 @@ sudo -E apt install -y \
     git \
     neovim \
     bat \
+    ctags \
     silversearcher-ag \
     lastpass-cli \
     tmux \
