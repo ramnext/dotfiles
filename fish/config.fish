@@ -68,9 +68,17 @@ if test ! -d "$HOME/repos"
 end
 set -x GHQ_ROOT $HOME/repos
 
+## poetry settings.
+if test -d "$HOME/.poetry"
+    status is-login; and set -g fish_user_paths $HOME/.poetry/bin $fish_user_paths
+else
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+    eval "$HOME/.poetry/bin/poetry completions fish" > $XDG_CONFIG_HOME/fish/completions/poetry.fish
+end
+
 ## anyenv
 ##
-status is-login; and set -x fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+status is-login; and set -g fish_user_paths $HOME/.anyenv/bin $fish_user_paths
 status --is-interactive; and source (anyenv init - fish|psub)
 
 # >>> conda initialize >>>
