@@ -8,8 +8,8 @@ end
 ###
 ### base path config
 ###
-status is-login; and set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
-status is-login; and set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
+status --is-login; and set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+status --is-login; and set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
 set -gx LD_LIBRARY_PATH "/usr/local/lib"
 set -gx LIBCLANG_PATH "$LIBCLANG_PATH:/usr/lib/llvm-6.0/lib"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -30,7 +30,7 @@ set -gx EDITOR vi
 
 ## fzf settings
 ##
-status is-login; and set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
+status --is-login; and set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
 set -x FZF_LEGACY_KEYBINDINGS 0
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 set -x FZF_DEFAULT_OPTS '--reverse --height 80%'
@@ -49,11 +49,11 @@ set -gx VTE_CJK_WIDTH 1
 ## go tools setting
 ##
 set -x GOPATH $HOME/go
-status is-login; and set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
+status --is-login; and set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
 
 ## rust setting
 ##
-status is-login; and set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
+status --is-login; and set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 starship init fish | source
 
 ## grc setting
@@ -70,7 +70,7 @@ set -x GHQ_ROOT $HOME/repos
 
 ## poetry settings.
 if test -d "$HOME/.poetry"
-    status is-login; and set -g fish_user_paths $HOME/.poetry/bin $fish_user_paths
+    status --is-login; and set -g fish_user_paths $HOME/.poetry/bin $fish_user_paths
 else
     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
     eval "$HOME/.poetry/bin/poetry completions fish" > $XDG_CONFIG_HOME/fish/completions/poetry.fish
@@ -78,7 +78,7 @@ end
 
 ## anyenv
 ##
-status is-login; and set -g fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+status --is-login; and set -g fish_user_paths $HOME/.anyenv/bin $fish_user_paths
 status --is-interactive; and source (anyenv init - fish|psub)
 
 # >>> conda initialize >>>
@@ -104,15 +104,15 @@ switch (uname)
 case Darwin
     ## openssl
     ##
-    status is-login; and set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
+    status --is-login; and set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
 
     ## coreutils
     ##
-    status is-login; and set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
+    status --is-login; and set -g fish_user_paths "/usr/local/opt/coreutils/libexec/gnubin" $fish_user_paths
 
     ## sqlite
     ##
-    status is-login; and set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
+    status --is-login; and set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
     ## sqlite for COMPILE
     ##
     set -gx LDFLAGS "-L/usr/local/opt/readline/lib"
