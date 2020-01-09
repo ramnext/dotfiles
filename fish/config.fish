@@ -135,13 +135,6 @@ case '*'
 end
 
 ###
-### settings by locale.
-###
-if [ -f $XDG_CONFIG_HOME/fish/local.fish ]
-    source $XDG_CONFIG_HOME/fish/local.fish
-end
-
-###
 ### alias define
 ###
 
@@ -185,3 +178,11 @@ alias lzd="lazydocker"
 
 ## for neovim
 alias vi='nvim'
+
+###
+### settings by locale.
+###
+if [ -f $XDG_CONFIG_HOME/fish/local.fish ]
+    source $XDG_CONFIG_HOME/fish/local.fish
+end
+

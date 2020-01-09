@@ -21,6 +21,8 @@ scriptencoding utf-8
 
 "" Python paths
 " pip3 install --user neovim
+let g:python_host_prog = system("which python2 | tr -d '\n'")
+let g:python3_host_prog = system("which python | tr -d '\n'")
 
 call plug#begin('~/.vim/plugged')
 """ Add install plugins between begin and end.
@@ -368,7 +370,7 @@ nnoremap <silent><F3> :bprevious<CR>
 nnoremap <silent><F4> :bnext<CR>
 nnoremap <silent><F9> :bdelete<CR>
 " if you need many files open onece. rplace close command all from one.
-nnoremap :q :qa
+"@ nnoremap :q :qa
 
 "" functions.
 " Auto save. Save modified status and not read only file and named buffer.
