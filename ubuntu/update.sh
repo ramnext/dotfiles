@@ -4,9 +4,13 @@ echo "
 =========================
 update os.
 ========================="
-sudo apt update && \
-sudo apt list --upgradable && \
-sudo apt upgrade
+# sudo apt update && \
+# sudo apt list --upgradable && \
+# sudo apt upgrade
+
+sudo apt-fast update && \
+sudo apt-fast list --upgradable && \
+sudo apt-fast upgrade
 
 echo "
 =========================

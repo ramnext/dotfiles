@@ -10,7 +10,10 @@ sudo -E apt install -y \
     apt-transport-https \
     gnupg-agent \
     software-properties-common
+sudo -E add-apt-repository ppa:apt-fast/stable
+sudo -E apt update
 sudo -E apt install -y \
+    apt-fast \
     git \
     neovim \
     bat \
