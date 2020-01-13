@@ -1,4 +1,4 @@
-!/usr/bin/bash
+#!/usr/bin/bash
 
 sudo -E apt install -y ca-certificates
 sudo -E apt update
