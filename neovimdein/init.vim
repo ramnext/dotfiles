@@ -10,6 +10,11 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
+"" Python paths
+" pip3 install --user neovim
+let g:python_host_prog = "/usr/bin/python2"
+let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
+
 "" dein plugins manager settings.
 " Required:
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
@@ -95,7 +100,7 @@ nnoremap <silent><F3> :bprevious<CR>
 nnoremap <silent><F4> :bnext<CR>
 nnoremap <silent><F9> :bdelete<CR>
 " if you need many files open onece. rplace close command all from one.
-nnoremap :q :qa
+"@ nnoremap :q :qa
 
 "" functions.
 " Auto save. Save modified status and not read only file and named buffer.
