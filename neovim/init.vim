@@ -21,8 +21,8 @@ scriptencoding utf-8
 
 "" Python paths
 " pip3 install --user neovim
-let g:python_host_prog = system("which python2 | tr -d '\n'")
-let g:python3_host_prog = system("which python | tr -d '\n'")
+let g:python_host_prog = "/usr/bin/python2"
+let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
 
 call plug#begin('~/.vim/plugged')
 """ Add install plugins between begin and end.
