@@ -19,6 +19,11 @@ scriptencoding utf-8
 "    "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 " ":PlugInstall"
 
+"" reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 "" Python paths
 " pip3 install --user neovim
 let g:python_host_prog = "/usr/bin/python2"
@@ -31,6 +36,12 @@ call plug#begin('~/.vim/plugged')
 "" Add color scheme.
 "" https://github.com/rafi/awesome-vim-colorschemes
 Plug 'dracula/vim'
+
+"" Library for judgemnet fitype on cursor position.
+Plug 'Shougo/context_filetype.vim'
+
+"" Switch filetype on cursor position.
+Plug 'osyo-manga/vim-precious'
 
 "" Vim airline.
 "" Lean & mean status/tabline for vim that's light as air.
@@ -200,6 +211,13 @@ let g:lightline.active = {
   \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
   \   ]
   \ }
+
+"" vim-precious settings.
+" Invalid in normal mode, however ignore help view.
+let g:precious_enable_switch_CursorMoved = { '*': 0, 'help': 1 }
+" Toggle switch fitype on/off sync insert mode.
+autocmd MyAutoCmd InsertEnter * :PreciousSwitch
+autocmd MyAutoCmd InsertLeave * :PreciousReset
 
 "" vim-better-whitespace settings.
 " Remove trailing white spaces on Save.
