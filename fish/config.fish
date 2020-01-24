@@ -166,12 +166,12 @@ alias ld="exa -lgFa --only-dirs --icons"
 
 ## for ghq
 # preview README file that ghq repositories
-set major_ver (fish --version | awk -F. '{print $1}' | awk '{print $NF}')
-if [ $major_ver -ge 3 ]
-    alias gcd='ghq get -look (ghq list |fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README.*")'
-else
-    alias gcd='ghq get -look (ghq list |fzf --preview "bat --color=always --style=header,grid --line-range :80 \$(ghq root)/{}/README.*")'
-end
+# set major_ver (fish --version | awk -F. '{print $1}' | awk '{print $NF}')
+# if [ $major_ver -ge 3 ]
+    alias gcd='ghq get -look (ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README.*")'
+# else
+#     alias gcd='ghq get -look (ghq list |fzf --preview "bat --color=always --style=header,grid --line-range :80 \$(ghq root)/{}/README.*")'
+# end
 
 ## for lazydocker
 alias lzd="lazydocker"
