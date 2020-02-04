@@ -18,9 +18,16 @@ apiVersion: kind.x-k8s.io/v1alpha4
 # You probably don't need this unless you are testing Kubernetes itself.
 nodes:
 - role: control-plane
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+  - containerPort: 443
+    hostPort: 443
+    #    listenAddress: "0.0.0.0" # Optional, defaults to "0.0.0.0"
+    #    protocol: udp # Optional, defaults to tcp
 - role: worker
-#- role: worker
-#- role: worker
+- role: worker
+- role: worker
 ## Per-Node Options
 #   Extra Mounts
 #   add a mount from /path/to/my/files on the host to /files on the node
@@ -38,6 +45,3 @@ nodes:
 #     optional: set the protocol to one of TCP, UDP, SCTP.
 #   TCP is the default
 #     protocol: TCP
-
-
-
