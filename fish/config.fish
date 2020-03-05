@@ -86,16 +86,9 @@ status --is-interactive; and source (anyenv init - fish|psub)
 #@eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
-## ssh-agent settings.
-# Install edc/bass fisher plugin before reading bash script files.
-# https://github.com/edc/bass
-set -gx SSH_KEY_LIFE_TIME_SEC 86400          # Effect times.
-set -gx SSH_AGENT_FILE $HOME/.ssh-agent
-test -f $SSH_AGENT_FILE and bass source $SSH_AGENT_FILE > /dev/null 2>&1
-if [ ( pgrep -lf ssh-agent | wc -l ) -eq 0 ]
-    ssh-agent -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
-    bass source $SSH_AGENT_FILE > /dev/null 2>&1
-end
+# keychain settings.
+/usr/bin/keychain --nogui $HOME/.ssh/id_rsa
+source $HOME/.keychain/H1805962-fish
 
 ###
 ### setting by OS
@@ -180,4 +173,3 @@ alias vi='nvim'
 if [ -f $XDG_CONFIG_HOME/fish/local.fish ]
     source $XDG_CONFIG_HOME/fish/local.fish
 end
-

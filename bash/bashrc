@@ -126,16 +126,9 @@ export no_proxy=127.0.0.1,localhost,10.213.194.96,10.213.194.105,10.213.194.107
 export http_proxy_user=z1h6022
 export http_proxy_pass=ki__CP+9
 
-# ssh-agent setting
-# 有効時間（好きな秒数に設定)
-SSH_KEY_LIFE_TIME_SEC=86400
-
-SSH_AGENT_FILE=$HOME/.ssh-agent
-test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE > /dev/null 2>&1
-if [ $( ps -ef | grep ssh-agent | grep -v grep | wc -l ) -eq 0 ]; then
-    ssh-agent -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
-    source $SSH_AGENT_FILE > /dev/null 2>&1
-fi
+# keychain settings.
+/usr/bin/keychain --nogui $HOME/.ssh/id_rsa
+source $HOME/.keychain/$HOSTNAME-sh
 
 # byobu setting
 export VTE_CJK_WIDTH=1
