@@ -2,5 +2,5 @@
     "diagnostic.enable": false,
     "python.linting.enabled": false,
     "python.jediEnabled": true,
-    "python.jediPath": "~/.anyenv/envs/pyenv/versions/3.8.1/lib/python3.8/site-packages/"
+    "python.jediPath": "~/.local/lib/python3.8/site-packages/"
 }
