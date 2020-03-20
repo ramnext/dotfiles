@@ -26,6 +26,22 @@ sudo -E apt install -y \
     python3-dev \
     python3.8 \
     python3.8-venv \
+    make \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    wget \
+    llvm \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libffi-dev \
+    liblzma-dev \
+    python-openssl \
     fish
 printf "***** %s end. *****\n\n" "[apt] package install"
 
@@ -33,16 +49,6 @@ printf "***** %s end. *****\n\n" "[apt] package install"
 #
 git clone --recursive https://github.com/ramnext/dotfiles.git $HOME/dotfiles
 printf "***** %s end. *****\n\n" "[dotfiles] clone"
-
-# install python tools
-#
-curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
-pip3 install -U --user \
-	flake8 \
-	jedi \
-	black \
-	pynvim
-printf "***** %s end. *****\n\n" "[python tools] install"
 
 # install fzf
 #
@@ -133,6 +139,34 @@ fi
 anyenv install --init
 printf "***** %s end. *****\n\n" "[anyenv] install"
 
+# install python tools
+#
+# if broken pip, Run follow command.
+# curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
+
+# pyenv settings.
+#
+(type pyenv) > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "pyenv is already exists!!"
+else
+    anyenv install pyenv
+    export PATH=$HOME/.anyenv/envs/pyenv/bin:$PATH
+fi
+version="$(pyenv versions | grep -v system)" 2> /dev/null
+if [ -z "$version" ]; then
+    pyenv install 3.8.2
+    pyenv global 3.8.2
+fi
+python -m pip install --upgrade --user \
+	pip \
+	flake8 \
+	jedi \
+	black \
+	pynvim
+printf "***** %s end. *****\n\n" "[python tools] install"
+
+
 # nodenv settings.
 #
 (type nodenv) > /dev/null 2>&1
@@ -140,11 +174,12 @@ if [ $? -eq 0 ]; then
     echo "nodenv is already exists!!"
 else
     anyenv install nodenv
+    export PATH=$HOME/.anyenv/envs/nodenv/bin:$PATH
 fi
-version=(nodenv versions) 2> /dev/null
+version="$(nodenv versions | grep -v system)" 2> /dev/null
 if [ -z "$version" ]; then
-    nodenv install 13.5.0
-    nodenv global 13.5.0
+    nodenv install 13.11.0
+    nodenv global 13.11.0
 fi
 cd $HOME; npm install -g yarn; yarn add neovim
 
