@@ -15,6 +15,10 @@ augroup END
 let g:python_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python2"
 let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
 
+"" Node paths
+" yarn add neovim
+" let g:node_host_prog = $HOME . '/node_modules/neovim/bin/cli.js'
+
 "" dein plugins manager settings.
 " Required:
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
