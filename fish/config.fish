@@ -86,15 +86,12 @@ status --is-interactive; and source (anyenv init - fish|psub)
 #@eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
-# keychain settings.
-/usr/bin/keychain --nogui $HOME/.ssh/id_rsa
-source $HOME/.keychain/H1805962-fish
-
 ###
 ### setting by OS
 ###
 switch (uname)
 case Darwin
+
     ## openssl
     ##
     status --is-login; and set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
@@ -120,10 +117,10 @@ case Darwin
     alias safari="open -a Safari"
     alias firefox="open -a Firefox"
 case Linux
-    ## python setting
-    ##
-    alias python3="python3.7"
-    alias python3-venv="python3.7-venv"
+
+    # keychain settings.
+    /usr/bin/keychain --nogui $HOME/.ssh/id_rsa
+    source $HOME/.keychain/H1805962-fish
 case '*'
 end
 
