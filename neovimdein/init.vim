@@ -11,8 +11,8 @@ augroup MyAutoCmd
 augroup END
 
 "" Python paths
-" pip3 install --user neovim
-let g:python_host_prog = "/usr/bin/python2"
+" python -m pip install --user neovim
+let g:python_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python2"
 let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
 
 "" dein plugins manager settings.
