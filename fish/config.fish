@@ -130,7 +130,6 @@ case Linux
     if [ $status -gt 1 ]
         ssh-agent -c -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
         source $SSH_AGENT_FILE > /dev/null 2>&1
-        ssh-add $HOME/.ssh/id_rsa
     end
 
 case '*'
