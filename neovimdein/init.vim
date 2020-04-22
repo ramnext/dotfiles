@@ -17,7 +17,7 @@ let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
 
 "" Node paths
 " yarn add neovim
-" let g:node_host_prog = $HOME . '/node_modules/neovim/bin/cli.js'
+" let g:node_host_prog = $HOME . '/.anyenv/envs/nodenv/shims/node_modules/neovim/bin/cli.js'
 
 "" dein plugins manager settings.
 " Required:
