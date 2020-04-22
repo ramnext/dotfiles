@@ -124,9 +124,10 @@ case Linux
     set -gx SSH_KEY_LIFE_TIME_SEC 86400          # Effect times.
     set -gx SSH_AGENT_FILE $HOME/.ssh-agent
     test -f $SSH_AGENT_FILE and bass source $SSH_AGENT_FILE > /dev/null 2>&1
-    if [ ( pgrep -lf ssh-agent | wc -l ) -eq 0 ]
-        ssh-agent -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
-        bass source $SSH_AGENT_FILE > /dev/null 2>&1
+    ssh-add -l > /dev/null ^&1
+    if [ $status -gt 1 ]
+        ssh-agent -c -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
+        source $SSH_AGENT_FILE > /dev/null 2>&1
     end
 
 case '*'
