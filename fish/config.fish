@@ -123,11 +123,14 @@ case Linux
     # https://github.com/edc/bass
     set -gx SSH_KEY_LIFE_TIME_SEC 86400          # Effect times.
     set -gx SSH_AGENT_FILE $HOME/.ssh-agent
-    test -f $SSH_AGENT_FILE and bass source $SSH_AGENT_FILE > /dev/null 2>&1
+    if [ -f $SSH_AGENT_FILE ]
+        source $SSH_AGENT_FILE > /dev/null 2>&1
+    end
     ssh-add -l > /dev/null ^&1
     if [ $status -gt 1 ]
         ssh-agent -c -t $SSH_KEY_LIFE_TIME_SEC > $SSH_AGENT_FILE
         source $SSH_AGENT_FILE > /dev/null 2>&1
+        ssh-add $HOME/.ssh/id_rsa
     end
 
 case '*'
