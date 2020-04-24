@@ -179,6 +179,11 @@ Plug 'mattn/emmet-vim'
 "" https://github.com/terryma/vim-expand-region
 Plug 'terryma/vim-expand-region'
 
+"" Go development plugin for Vim
+"" This plugin adds Go language support for Vim.
+"" https://github.com/fatih/vim-go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+
 call plug#end()
 
 "" [Colors] Command display left side. default option override.
