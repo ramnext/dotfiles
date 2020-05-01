@@ -8,6 +8,9 @@ set -x http_proxy_pass 'ki__CP+0'
 # docker setting
 set -x DOCKER_HOST 'tcp://localhost:2375'
 
+# shared library
+set -x LIBCLANG_PATH "$LIBCLANG_PATH:/usr/lib/x86_64-linux-gnu/"
+
 # for Win10 17.09. Win10 18.03 later can delete
 #del status --is-login; and sudo mount --bind /mnt/c /c
 
