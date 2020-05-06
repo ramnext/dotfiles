@@ -78,7 +78,7 @@ end
 ## anyenv
 ##
 set -g fish_user_paths $HOME/.anyenv/bin $fish_user_paths
-source (anyenv init - fish|psub)
+status --is-interactive; and source (anyenv init -|psub)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
