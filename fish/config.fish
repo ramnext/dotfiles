@@ -5,6 +5,11 @@ if not functions -q fisher
     fish -c fisher
 end
 
+## anyenv
+##
+set -g fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+status --is-interactive; and source (anyenv init -|psub)
+
 ###
 ### base path config
 ###
@@ -74,11 +79,6 @@ else
     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
     eval "$HOME/.poetry/bin/poetry completions fish" > $XDG_CONFIG_HOME/fish/completions/poetry.fish
 end
-
-## anyenv
-##
-set -g fish_user_paths $HOME/.anyenv/bin $fish_user_paths
-status --is-interactive; and source (anyenv init -|psub)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
