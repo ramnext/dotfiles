@@ -24,8 +24,6 @@ sudo -E apt install -y \
     tig \
     golang-go \
     python3-dev \
-    python3.8 \
-    python3.8-venv \
     make \
     build-essential \
     libssl-dev \
@@ -43,9 +41,10 @@ sudo -E apt install -y \
     liblzma-dev \
     python-openssl \
     fish \
+    tree \
     latexpdf \
     dvipng
-sudo -E apt install -y \
+sudo -E apt-fast install -y \
     texlive-latex-recommended \
     texlive-latex-extra \
     texlive-fonts-recommended \
