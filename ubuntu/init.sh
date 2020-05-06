@@ -42,7 +42,17 @@ sudo -E apt install -y \
     libffi-dev \
     liblzma-dev \
     python-openssl \
-    fish
+    fish \
+    latexpdf \
+    dvipng
+sudo -E apt install -y \
+    texlive-latex-recommended \
+    texlive-latex-extra \
+    texlive-fonts-recommended \
+    texlive-fonts-extra \
+    texlive-lang-japanese \
+    texlive-lang-cjkapt-fast \
+    texlive-extra-utils
 printf "***** %s end. *****\n\n" "[apt] package install"
 
 # dotfiles clone from github.com
