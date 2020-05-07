@@ -94,6 +94,7 @@ else
     echo "fish shell config is already exists!!"
 fi
 ln -sfv $HOME/dotfiles/fish/config.fish $HOME/.config/fish/config.fish
+ln -sfv $HOME/dotfiles/fish/venv.fish $HOME/.config/fish/venv.fish
 ln -sfv $HOME/dotfiles/fish/fishfile $HOME/.config/fish/fishfile
 ln -sfv $HOME/dotfiles/fish/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
 ln -sfv $HOME/dotfiles/fish/functions/cdl.fish $HOME/.config/fish/functions/cdl.fish
