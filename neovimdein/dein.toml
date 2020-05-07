@@ -352,3 +352,13 @@ hook_add = '''
     vmap v <Plug>(expand_region_expand)
     vmap <C-v> <Plug>(expand_region_shrink)
 '''
+
+[[plugins]]
+## previm
+## Realtime preview by Vim. (Markdown, reStructuredText, textile)
+## https://github.com/previm/previm
+repo = 'previm/previm'
+hook_add = '''
+    "" previm settings.
+    let g:previm_open_cmd = 'open -a Firefox'
+'''
