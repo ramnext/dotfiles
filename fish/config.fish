@@ -22,11 +22,11 @@ set -gx XDG_DATA_HOME "$HOME/.local/share"
 
 ## bobthefish settings
 ##
-#set -g theme_color_scheme dracula
-#set -g theme_nerd_fonts yes
-#@set -g theme_display_date no
-#@set -g theme_date_format "+%m/%d %H:%M:%S"
-#set -g theme_newline_cursor yes
+#set -gx theme_color_scheme dracula
+#set -gx theme_nerd_fonts yes
+#@set -gx theme_display_date no
+#@set -gx theme_date_format "+%m/%d %H:%M:%S"
+#set -gx theme_newline_cursor yes
 
 ## EDITOR
 ##
@@ -35,16 +35,16 @@ set -gx EDITOR vi
 ## fzf settings
 ##
 set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
-set -x FZF_LEGACY_KEYBINDINGS 0
-set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
-set -x FZF_DEFAULT_OPTS '--reverse --height 80%'
-set -x FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
-set -x FZF_OPEN_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
-set -x FZF_OPEN_OPTS '--preview "bat --color=always --style=header,grid --line-range :100 {}" --height 100%'
-set -x FZF_PREVIEW_DIR_CMD ls
-set -x FZF_PREVIEW_FILE_CMD 'bat --color=always --style=header,grid --line-range :100 {}'
-set -x FZF_TMUX 1
-set -x FZF_TMUX_HEIGHT '80%'
+set -gx FZF_LEGACY_KEYBINDINGS 0
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+set -gx FZF_DEFAULT_OPTS '--reverse --height 80%'
+set -gx FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
+set -gx FZF_OPEN_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+set -gx FZF_OPEN_OPTS '--preview "bat --color=always --style=header,grid --line-range :100 {}" --height 100%'
+set -gx FZF_PREVIEW_DIR_CMD ls
+set -gx FZF_PREVIEW_FILE_CMD 'bat --color=always --style=header,grid --line-range :100 {}'
+set -gx FZF_TMUX 1
+set -gx FZF_TMUX_HEIGHT '80%'
 
 ## byobu
 ##
@@ -52,7 +52,7 @@ set -gx VTE_CJK_WIDTH 1
 
 ## go tools setting
 ##
-set -x GOPATH $HOME/go
+set -gx GOPATH $HOME/go
 set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
 
 ## rust setting
@@ -70,7 +70,7 @@ end
 if test ! -d "$HOME/repos"
     mkdir -p $HOME/repos
 end
-set -x GHQ_ROOT $HOME/repos
+set -gx GHQ_ROOT $HOME/repos
 
 ## poetry settings.
 if test -d "$HOME/.poetry"
