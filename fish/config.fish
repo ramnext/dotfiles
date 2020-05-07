@@ -175,6 +175,13 @@ alias lzd="lazydocker"
 alias vi='nvim'
 
 ###
+### settings by venv.
+###
+if [ -f $XDG_CONFIG_HOME/fish/venv.fish ]
+    source $XDG_CONFIG_HOME/fish/venv.fish
+end
+
+###
 ### settings by locale.
 ###
 if [ -f $XDG_CONFIG_HOME/fish/local.fish ]

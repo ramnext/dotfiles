@@ -12,8 +12,12 @@ augroup END
 
 "" Python paths
 " python -m pip install --user neovim
-let g:python_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python2"
-let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog = $VIRTUAL_ENV . "/bin/python"
+else
+    let g:python_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python2"
+    let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
+endif
 
 "" Node paths
 " yarn add neovim
