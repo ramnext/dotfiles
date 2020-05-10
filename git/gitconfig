@@ -3,7 +3,8 @@
 	email = ramnextevolutions@gmail.com
 
 [core]
-        excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
+    quotepath = false
 
 [credential]
 	helper = cache --timeout 3600
