@@ -354,11 +354,75 @@ hook_add = '''
 '''
 
 [[plugins]]
-## previm
-## Realtime preview by Vim. (Markdown, reStructuredText, textile)
-## https://github.com/previm/previm
-repo = 'previm/previm'
+## open-browser.
+## Open URI with your favorite browser from your most favorite editor.
+## https://github.com/tyru/open-browser.vim
+repo = 'tyru/open-browser.vim'
 hook_add = '''
-    "" previm settings.
-    let g:previm_open_cmd = 'open -a Firefox'
+    "" open-browser settings.
+    " browser setting.
+    let g:openbrowser_browser_commands = [
+        \ {"name": "open",
+        \  "args": ["{browser}", "-a", "Google\ Chrome", "{uri}"]}
+        \]
+    let g:netrw_nogx = 1 " disable netrw's gx mapping.
+	nmap gx <Plug>(openbrowser-smart-search)
+	vmap gx <Plug>(openbrowser-smart-search)
+
+	" Search engine mappings.
+    nnoremap g1 :<C-u>execute 'OpenBrowserSearch -wikipedia-ja' expand('<cWORD>')<CR>
+    nnoremap g2 :<C-u>execute 'OpenBrowserSearch -alc' expand('<cWORD>')<CR>
+    nnoremap g3 :<C-u>execute 'OpenBrowserSearch -github' expand('<cWORD>')<CR>
+    nnoremap g4 :<C-u>execute 'OpenBrowserSearch -python' expand('<cWORD>')<CR>
+    nnoremap g7 :<C-u>execute 'OpenBrowserSearch -go' expand('<cWORD>')<CR>
+    nnoremap g8 :<C-u>execute 'OpenBrowserSearch -dev' expand('<cWORD>')<CR>
+    let g:openbrowser_search_engines = {
+        \       'alc': 'https://eow.alc.co.jp/search?q={query}',
+        \       'askubuntu': 'https://askubuntu.com/search?q={query}',
+        \       'baidu': 'https://www.baidu.com/s?wd={query}&rsv_bp=0&rsv_spt=3&inputT=2478',
+        \       'cpan': 'http://search.cpan.org/search?query={query}',
+        \       'devdocs': 'https://devdocs.io/#q={query}',
+        \       'duckduckgo': 'https://duckduckgo.com/?q={query}',
+        \       'go': 'https://pkg.go.dev/search?q={query}',
+        \       'fileformat': 'https://www.fileformat.info/info/unicode/char/{query}/',
+        \       'github': 'https://github.com/search?q={query}',
+        \       'google': 'https://google.com/search?q={query}',
+        \       'php': 'https://php.net/{query}',
+        \       'python': 'https://docs.python.org/ja/dev/search.html?q={query}&check_keywords=yes&area=default',
+        \       'twitter-search': 'https://twitter.com/search/{query}',
+        \       'twitter-user': 'https://twitter.com/{query}',
+        \       'vim': 'https://www.google.com/cse?cx=partner-pub-3005259998294962%3Abvyni59kjr1&ie=ISO-8859-1&q={query}&sa=Search&siteurl=www.vim.org%2F#gsc.tab=0&gsc.q={query}&gsc.page=1',
+        \       'wikipedia': 'https://en.wikipedia.org/wiki/{query}',
+        \       'wikipedia-ja': 'https://ja.wikipedia.org/wiki/{query}',
+        \       'yahoo': 'https://search.yahoo.com/search?p={query}',
+        \       'dev': 'https://dev.classmethod.jp/?s={query}',
+        \}
+
+    " Local file open in browser.
+    nnoremap g9 :<C-u>execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')<CR>
+'''
+
+[[plugins]]
+## Markdown Preview for (Neo)vim
+## Preview markdown on your modern browser with synchronised scrolling and flexible configuration.
+## https://github.com/iamcco/markdown-preview.nvim
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = [ 'markdown', 'pandoc.markdown', 'rmd' ]
+build = 'sh -c "cd app & yarn install"'
+hook_add = '''
+    "" Markdown Preview settings.
+    " let g:mkdp_browser = 'Firefox'
+    let g:mkdp_browser = 'Google Chrome'
+'''
+
+[[plugins]]
+## InstantRst
+## A vim plugin for preview rst document instantly.
+## https://github.com/gu-fan/InstantRst
+repo = 'Rykka/InstantRst'
+on_ft = [ 'rst' ]
+hook_add = '''
+    "" InstantRst settings.
+    " let g:instant_rst_browser = 'Firefox'
+    let g:instant_rst_browser = 'Google\ Chrome'
 '''
