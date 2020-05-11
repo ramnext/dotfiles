@@ -184,6 +184,11 @@ Plug 'terryma/vim-expand-region'
 "" https://github.com/fatih/vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
+"" Latex plugins for vim.
+Plug 'lervag/vimtex'
+Plug 'Konfekt/FastFold'
+Plug 'matze/vim-tex-fold'
+
 call plug#end()
 
 "" [Colors] Command display left side. default option override.
@@ -344,6 +349,13 @@ vmap <C-v> <Plug>(expand_region_shrink)
 "" emmet-vim settings.
 " remap the default <C-Y> leader.
 "@let g:user_emmet_leader_key="<C-y>"
+
+"" neovim-remote settings for latex
+let g:tex_flavor  = 'latex'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_progname = 'nvr'
 
 "" editor settings.
 set number           " Display line number.
