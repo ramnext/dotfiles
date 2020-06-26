@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+# replace mirror repository exclude security.
+sudo sed -i.bak -e 's%http://archive[^ ]\+%mirror://mirrors.ubuntu.com/mirrors.txt%g' /etc/apt/sources.list
+cat /etc/apt/sources.list | sed -e "/^#/d" -e "/^$/d"
+
+# package install.
 sudo -E apt install -y ca-certificates
 sudo -E apt update
 sudo -E apt upgrade
