@@ -125,6 +125,7 @@ if [ $? -eq 0 ]; then
 else
     anyenv install pyenv
     export PATH=$HOME/.anyenv/envs/pyenv/bin:$PATH
+    sudo .anyenv/envs/pyenv/plugins/python-build/install.sh
 fi
 version="$(pyenv versions | grep -v system)" 2> /dev/null
 if [ -z "$version" ]; then
