@@ -113,6 +113,7 @@ else
     export PATH="$HOME/.anyenv/bin:$PATH"
     anyenv init
     anyenv install --init
+    eval "$(anyenv init -)"
 fi
 printf "***** %s end. *****\n\n" "[anyenv] install"
 
