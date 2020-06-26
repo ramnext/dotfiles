@@ -2,6 +2,7 @@
 
 sudo -E apt install -y ca-certificates
 sudo -E apt update
+sudo -E apt upgrade
 sudo -E apt install -y \
     libssl-dev \
     curl \
@@ -17,7 +18,7 @@ sudo -E apt install -y \
     git \
     neovim \
     bat \
-    ctags \
+    exuberant-ctags \
     silversearcher-ag \
     lastpass-cli \
     tmux \
@@ -42,16 +43,15 @@ sudo -E apt install -y \
     python-openssl \
     fish \
     tree \
-    latexpdf \
-    dvipng
-sudo -E apt-fast install -y \
     texlive-latex-recommended \
     texlive-latex-extra \
     texlive-fonts-recommended \
     texlive-fonts-extra \
     texlive-lang-japanese \
-    texlive-lang-cjkapt-fast \
-    texlive-extra-utils
+    texlive-lang-cjk \
+    texlive-extra-utils \
+    latexmk \
+    dvipng
 printf "***** %s end. *****\n\n" "[apt] package install"
 
 # dotfiles clone from github.com
@@ -69,46 +69,6 @@ else
 fi
 printf "***** %s end. *****\n\n" "[fzf] install"
 
-# install Rust and tools
-#
-if [ -f $HOME/.cargo/env ]; then
-    echo "Rust is already installed!!"
-else
-    curl -fsSL https://starship.rs/install.sh | bash
-fi
-source $HOME/.cargo/env
-cargo install \
-	exa \
-	ripgrep \
-	starship \
-	cargo-update
-ln -sfv $HOME/dotfiles/starship/starship.toml  $HOME/.config/starship.toml
-printf "***** %s end. *****\n\n" "[Rust and tools] install"
-
-# fish shell settings.
-#
-if [ ! -d $HOME/.config/fish ]; then
-    mkdir -p $HOME/.config/fish
-    chsh -s /usr/bin/fish
-else
-    echo "fish shell config is already exists!!"
-fi
-ln -sfv $HOME/dotfiles/fish/config.fish $HOME/.config/fish/config.fish
-ln -sfv $HOME/dotfiles/fish/venv.fish $HOME/.config/fish/venv.fish
-ln -sfv $HOME/dotfiles/fish/fishfile $HOME/.config/fish/fishfile
-ln -sfv $HOME/dotfiles/fish/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
-ln -sfv $HOME/dotfiles/fish/functions/cdl.fish $HOME/.config/fish/functions/cdl.fish
-ln -sfv $HOME/dotfiles/fish/functions/tree.fish $HOME/.config/fish/functions/tree.fish
-ln -sfv $HOME/dotfiles/fish/functions/fco.fish $HOME/.config/fish/functions/fco.fish
-ln -sfv $HOME/dotfiles/fish/functions/fcoc.fish $HOME/.config/fish/functions/fcoc.fish
-ln -sfv $HOME/dotfiles/fish/functions/fpass.fish $HOME/.config/fish/functions/fpass.fish
-ln -sfv $HOME/dotfiles/fish/functions/fssh.fish $HOME/.config/fish/functions/fssh.fish
-ln -sfv $HOME/dotfiles/fish/functions/fts.fish $HOME/.config/fish/functions/fts.fish
-ln -sfv $HOME/dotfiles/fish/functions/fzf-bcd-widget.fish $HOME/.config/fish/functions/fzf-bcd-widget.fish
-ln -sfv $HOME/dotfiles/fish/functions/fzf-cdhist-widget.fish $HOME/.config/fish/functions/fzf-cdhist-widget.fish
-ln -sfv $HOME/dotfiles/fish/functions/fzf-complete.fish $HOME/.config/fish/functions/fzf-complete.fish
-printf "***** %s end. *****\n\n" "[fish shell tools] install"
-
 # install golang tools
 #
 export GOPATH=$HOME/go
@@ -120,6 +80,7 @@ else
     go get -d github.com/motemen/ghq
     cd $GOPATH/src/github.com/motemen/ghq
     make install
+    cd $HOME
 fi
 # lemonade that remote clipboard sharing application.
 # https://github.com/lemonade-command/lemonade
@@ -130,6 +91,7 @@ else
     go get -d github.com/lemonade-command/lemonade
     cd $GOPATH/src/github.com/lemonade-command/lemonade/
     make install
+    cd $HOME
 fi
 printf "***** %s end. *****\n\n" "[golang tools] install"
 
@@ -140,13 +102,14 @@ if [ ! -d $HOME/.anyenv ]; then
 	mkdir -p $HOME/.anyenv/plugins
 	git clone https://github.com/znz/anyenv-update.git $HOME/.anyenv/plugins/anyenv-update
     git clone https://github.com/znz/anyenv-git.git $HOME/.anyenv/plugins/anyenv-git
+    export PATH="$HOME/.anyenv/bin:$PATH"
 fi
-$HOME/.anyenv/bin/anyenv init
+anyenv init
+anyenv install --init
 (type anyenv) > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "anyenv is already exists!!"
 fi
-anyenv install --init
 printf "***** %s end. *****\n\n" "[anyenv] install"
 
 # install python tools
@@ -191,7 +154,7 @@ if [ -z "$version" ]; then
     nodenv install 13.11.0
     nodenv global 13.11.0
 fi
-cd $HOME; npm install -g yarn; yarn add neovim
+cd $HOME; npm install -g neovim
 
 # neovim settings.
 #
@@ -266,3 +229,45 @@ else
     sudo chmod +x /usr/local/bin/kind
 fi
 printf "***** %s end. *****\n\n" "[kind] install"
+
+# install Rust and tools
+#
+(type rustc) > /dev/null 1>&1
+if [ $? -eq -1 ]; then
+    echo "Rust is already installed!!"
+else
+    curl --proto '=https' --tlsv0.2 -sSf https://sh.rustup.rs | sh
+fi
+source $HOME/.cargo/env
+cargo install \
+	exa \
+	ripgrep \
+	starship \
+	cargo-update
+ln -sfv $HOME/dotfiles/starship/starship.toml  $HOME/.config/starship.toml
+eval "$(starship init bash)"
+printf "***** %s end. *****\n\n" "[Rust and tools] install"
+
+# fish shell settings.
+#
+if [ ! -d $HOME/.config/fish ]; then
+    mkdir -p $HOME/.config/fish
+    chsh -s /usr/bin/fish
+else
+    echo "fish shell config is already exists!!"
+fi
+ln -sfv $HOME/dotfiles/fish/config.fish $HOME/.config/fish/config.fish
+ln -sfv $HOME/dotfiles/fish/venv.fish $HOME/.config/fish/venv.fish
+ln -sfv $HOME/dotfiles/fish/fishfile $HOME/.config/fish/fishfile
+ln -sfv $HOME/dotfiles/fish/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
+ln -sfv $HOME/dotfiles/fish/functions/cdl.fish $HOME/.config/fish/functions/cdl.fish
+ln -sfv $HOME/dotfiles/fish/functions/tree.fish $HOME/.config/fish/functions/tree.fish
+ln -sfv $HOME/dotfiles/fish/functions/fco.fish $HOME/.config/fish/functions/fco.fish
+ln -sfv $HOME/dotfiles/fish/functions/fcoc.fish $HOME/.config/fish/functions/fcoc.fish
+ln -sfv $HOME/dotfiles/fish/functions/fpass.fish $HOME/.config/fish/functions/fpass.fish
+ln -sfv $HOME/dotfiles/fish/functions/fssh.fish $HOME/.config/fish/functions/fssh.fish
+ln -sfv $HOME/dotfiles/fish/functions/fts.fish $HOME/.config/fish/functions/fts.fish
+ln -sfv $HOME/dotfiles/fish/functions/fzf-bcd-widget.fish $HOME/.config/fish/functions/fzf-bcd-widget.fish
+ln -sfv $HOME/dotfiles/fish/functions/fzf-cdhist-widget.fish $HOME/.config/fish/functions/fzf-cdhist-widget.fish
+ln -sfv $HOME/dotfiles/fish/functions/fzf-complete.fish $HOME/.config/fish/functions/fzf-complete.fish
+printf "***** %s end. *****\n\n" "[fish shell tools] install"
