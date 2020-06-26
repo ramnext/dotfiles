@@ -102,18 +102,17 @@ printf "***** %s end. *****\n\n" "[golang tools] install"
 
 # anyenv settings.
 #
-if [ ! -d $HOME/.anyenv ]; then
+(type anyenv) > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "anyenv is already exists!!"
+else
     git clone https://github.com/anyenv/anyenv ~/.anyenv
 	mkdir -p $HOME/.anyenv/plugins
 	git clone https://github.com/znz/anyenv-update.git $HOME/.anyenv/plugins/anyenv-update
     git clone https://github.com/znz/anyenv-git.git $HOME/.anyenv/plugins/anyenv-git
     export PATH="$HOME/.anyenv/bin:$PATH"
-fi
-anyenv init
-anyenv install --init
-(type anyenv) > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo "anyenv is already exists!!"
+    anyenv init
+    anyenv install --init
 fi
 printf "***** %s end. *****\n\n" "[anyenv] install"
 
