@@ -66,7 +66,7 @@ set relativenumber   " Relative number display.
 set termguicolors    " Use TrueColor.
 set showbreak=↪      " Show line break.
 set hidden           " no save tolerate on move buffers.
-set updatetime=1000  " Poling time for auto commands.
+set updatetime=500   " Poling time for auto commands.
 set clipboard+=unnamedplus  " clipboard support.
 
 " Search options.
