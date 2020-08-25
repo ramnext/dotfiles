@@ -120,11 +120,11 @@ if ! shopt -oq posix; then
 fi
 
 # proxy setting
-export http_proxy=http://z1h6022:ki__CP+0@ctcpro.ctc-g.co.jp:8080
+export http_proxy=http://z1h6022:ki__CP+7@ctcpro.ctc-g.co.jp:8080
 export https_proxy=${http_proxy}
 export no_proxy=127.0.0.1,localhost,10.213.194.96,10.213.194.105,10.213.194.107,192.168.65.*
 export http_proxy_user=z1h6022
-export http_proxy_pass=ki__CP+1
+export http_proxy_pass=ki__CP+7
 
 # ssh-agent setting
 # 有効時間（好きな秒数に設定)
@@ -201,4 +201,3 @@ alias ld="exa -lgFa --only-dirs --icons"
 #fi
 #unset __conda_setup
 # <<< conda initialize <<<
-
