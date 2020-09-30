@@ -26,7 +26,7 @@ augroup END
 
 "" Python paths
 " pip3 install --user neovim
-let g:python_host_prog = "/usr/bin/python2"
+" let g:python_host_prog = "/usr/bin/python2"
 let g:python3_host_prog = $HOME . "/.anyenv/envs/pyenv/shims/python"
 
 call plug#begin('~/.vim/plugged')
