@@ -33,8 +33,9 @@
 
 [time]
 disabled = false
-format = "🕙[ %T ]"
-utc_time_offset = -9
+format = "🕙[\\[ $time \\] ]($style) "
+time_format = "%T"
+utc_time_offset = "+9"
 
 [env_var]
 variable = "STARSHIP_SHELL"
