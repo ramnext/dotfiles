@@ -1,15 +1,57 @@
 {
-    "debug.console.fontSize": 14,
-    "editor.fontFamily": "HackGen35, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14,
+    "editor.fontFamily": "HackGenNerd, Ricty Diminished Discord with-icons, Menlo, Monaco, 'Courier New', monospace",
+    "editor.minimap.renderCharacters": false,
     "editor.suggestSelection": "first",
+    "editWithShell.processEntireTextIfNoneSelected": true,
     "files.autoSave": "afterDelay",
     "git.path": "/usr/bin/git",
-    "problems.showCurrentInStatus": true,
-    "python.jediEnabled": true,
-    "terminal.integrated.fontFamily": "Ricty Diminished Discord with-icons",
-    "terminal.integrated.fontSize": 16,
-    "terminal.integrated.rendererType": "dom",
-    "python.languageServer": "Jedi",
-    "restructuredtext.languageServer.trace.server": "messages",
+    "terminal.integrated.fontFamily": "HackGenNerd Console, Ricty Diminished Discord with-icons, Consolas, Courier New, monospace",
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "vim.camelCaseMotion.enable": true,
+    "vim.foldfix": true,
+    "vim.hlsearch": true,
+    "vim.sneak": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.useSystemClipboard": true,
+    "vim.visualstar": true,
+    "vim.whichwrap": "h,l,<,>,[,]",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.activityBar.visible": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.iconTheme": "vscode-icons",
+    "files.autoGuessEncoding": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        
+        {
+            "before": ["s"],
+            "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
+        }
+    ],
+    "search.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/env": true,
+        "tags": true
+    },
+    "files.exclude": {
+        "**/.svn": false
+    },
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true,
+    "workbench.colorTheme": "Dracula",
+    "workbench.editor.openPositioning": "first",
+    "workbench.editor.tabCloseButton": "off",
+    "python.languageServer": "Pylance",
+    "vim.easymotion": true,
+    "vim.leader": " ",
+    "restructuredtext.confPath": "${workspaceFolder}",
 }

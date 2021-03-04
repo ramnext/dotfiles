@@ -410,5 +410,15 @@
         "command": "workbench.action.terminal.runSelectedText",
         "when": "editorTextFocus && vim.mode == 'Normal'"
     },
+    {
+        "key": "ctrl+o e",
+        "command": "workbench.files.action.focusOpenEditorsView",
+        "when": "workbench.explorer.openEditorsView.active"
+    },
+    {
+        "key": "cmd+k e",
+        "command": "-workbench.files.action.focusOpenEditorsView",
+        "when": "workbench.explorer.openEditorsView.active"
+    },
 
 ]

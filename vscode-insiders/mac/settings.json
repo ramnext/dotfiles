@@ -84,5 +84,11 @@
         "vs-kubernetes.minikube-path": "/Users/toshis/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
         "vs-kubernetes.draft-path": "/Users/toshis/.vs-kubernetes/tools/draft/darwin-amd64/draft"
     },
-    "python.languageServer": "Microsoft",
+    "python.languageServer": "Pylance",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
 }
